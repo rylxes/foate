@@ -1,0 +1,19 @@
+{
+  "name": "foate-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build"
+  },
+  "author": "ben4code",
+  "license": "MIT",
+  "dependencies": {
+    "antd": "^4.4.0",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
