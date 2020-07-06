@@ -2,6 +2,7 @@ import GlobalStyles from "../styles/globalStyles";
 import Navbar from '../components/Layouts/Navbar'
 import Head from 'next/head'
 import 'antd/dist/antd.css'
+// import TestNav from '../components/Layouts/testNav'
 
 
 const MyAPP = ({ Component, pageProps }) => {
@@ -11,8 +12,10 @@ const MyAPP = ({ Component, pageProps }) => {
       <Head>
         <title>FOATE with ANT DESIGN</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap" rel="stylesheet"></link>
+        <link rel="stylesheet" href="css/styles.css"/>
       </Head>
       <Navbar/>
+      {/* <TestNav/> */}
       <Component {...pageProps} />
     </>
   );
