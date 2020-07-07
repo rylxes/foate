@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Index() {
+export default function signup() {
   return (
     <div>
-      <h1>Home Component</h1>
+      Signup
     </div>
   )
 }

@@ -2,7 +2,6 @@ import GlobalStyles from "../styles/globalStyles";
 import Navbar from '../components/Layouts/Navbar'
 import Head from 'next/head'
 import 'antd/dist/antd.css'
-// import TestNav from '../components/Layouts/testNav'
 
 
 const MyAPP = ({ Component, pageProps }) => {
@@ -15,7 +14,6 @@ const MyAPP = ({ Component, pageProps }) => {
         <link rel="stylesheet" href="css/styles.css"/>
       </Head>
       <Navbar/>
-      {/* <TestNav/> */}
       <Component {...pageProps} />
     </>
   );
