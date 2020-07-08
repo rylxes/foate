@@ -3,7 +3,7 @@ import User from "../../../models/User";
 
 import {authMiddleware} from '../../../util/authMiddleware'
 
-
+//Protected routes
 export default authMiddleware( async (req, res) => {
   await DbConnect();
   const { method } = req;
@@ -11,6 +11,7 @@ export default authMiddleware( async (req, res) => {
     case "GET":
       try {
         const users = await User.find({});
+
         res.status(200).json({ success: true, data: users });
       } catch (error) {
         res.status(400).json({ success: false });
@@ -20,4 +21,4 @@ export default authMiddleware( async (req, res) => {
       res.status(400).json({ success: false });
       break;
   }
-});
+}, ['admin', 'user']);

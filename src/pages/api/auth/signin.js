@@ -1,7 +1,7 @@
 import DbConnect from "../../../util/database";
 import User from "../../../models/User";
 
-
+// Login route
 import {sign} from 'jsonwebtoken'
 import {compare} from 'bcrypt'
 import cookie from 'cookie'
@@ -9,19 +9,26 @@ import cookie from 'cookie'
 export default async function login(req, res){
   if(req.method === 'POST'){
     DbConnect();
+    
+    //Check form email with DB
     const guest = await User.findOne({email: req.body.email});
     if(!guest){
       return res.status(405).json({message: "Something went wrong."});
     }
     
+    //Check form password with DB
     compare(req.body.password, guest.password, async function(err, result) {
       if(err && !result){
         return res.status(405).json({err, message: "Something went wrong."})
       }
       
+      // Token data
       const claims = {
         sub: guest.id,
-        userEmail: guest.email
+        firstName: guest.firstName,
+        lastName: guest.lastName,
+        userEmail: guest.email,
+        role: guest.role
       }
       
       const jwt = sign(
@@ -29,6 +36,7 @@ export default async function login(req, res){
         {expiresIn: '1hr'}
       );
 
+      // Set cookie
       res.setHeader('Set-Cookie', cookie.serialize('auth', jwt, {
         httpOnly: true,
         sameSite: "strict",

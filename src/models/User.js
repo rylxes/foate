@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// User Schema
 const userSchema = new Schema({
   firstName: {
     type: String,
@@ -29,7 +30,8 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    default: "user"
+    default: "user",
+    enum: ["user", "admin", "vendor", "investor", "tenant"]
   },
 }, {timestamps: true});
 
