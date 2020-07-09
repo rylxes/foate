@@ -12,3 +12,17 @@ cloudinary.config({
 module.exports = {
   cloudinary
 }
+
+
+// module.exports = (path) => {
+//   return new Promise((resolve)=> {
+//     cloudinary.uploader.upload(paths, {
+//       upload_preset: process.env.NEXT_APP_CLOUDINARY_PRESET
+//     }, (error, result)=>{
+//       resolve({
+//         url: result.secure_url,
+//         id: result.public_id
+//       })
+//     });
+//   })
+// }

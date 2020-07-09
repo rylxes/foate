@@ -22,13 +22,21 @@ export default authMiddleware( async (req, res, user) => {
           if(err){
             return res.status(400).json({error: 'Image could not be uploaded.'})
           }
-
-          // Upload image to cloudinary
-          const uploadResponse = await cloudinary.uploader.upload(files.photo.path, {
-            upload_preset: process.env.NEXT_APP_CLOUDINARY_PRESET
-          });
-
           
+          let paths = [];
+          for (const key in files) {
+            paths.push(files[key].path);
+          }
+          
+          //Upload image to cloudinary
+          const result = await Promise.all(paths.map((path)=> {
+            return cloudinary.uploader.upload(path, {
+              upload_preset: process.env.NEXT_APP_CLOUDINARY_PRESET
+            });
+          }));
+          
+          const uploadPaths = result.map(item => item.secure_url);
+
           //Store invoice in your DB.
           const {title, description, amount, status} = fields;
           const invoice = await Invoice.create({
@@ -37,18 +45,9 @@ export default authMiddleware( async (req, res, user) => {
             description: description,
             amount: amount,
             status: status,
-            photo: uploadResponse.secure_url
+            photos: uploadPaths
           });
-          if(!invoice){
-            return res.status(400).json({err: "Unable to write to DB."})
-          }
-          return res.status(200).json({
-            data: {
-              invoice: invoice,
-              fileName: files.photo.name, 
-              filePath: uploadResponse.secure_url
-            }
-          });
+          return res.status(200).json({data: {invoice, uploadPaths}});
         })
       } catch (error) {
         res.status(400).json({ success: false });

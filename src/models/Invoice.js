@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 // Invoice Schema
 const invoiceSchema = new Schema({
-  vendor: {
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  },
+  // vendor: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "User"
+  // },
   title: {
     type: String,
     required: true,
@@ -19,9 +19,7 @@ const invoiceSchema = new Schema({
     trim: true,
     minlength: 5
   },
-  photo: {
-    type: String,
-  },
+  photos: [{type: String}],
   amount: {
     type: String,
     required: true,
