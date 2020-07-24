@@ -1,6 +1,8 @@
 import { useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from 'next/router'
+import { FaBeer } from 'react-icons/fa';
+
 
 export default function Navbar2() {
   
@@ -11,11 +13,11 @@ export default function Navbar2() {
 
   return (
     <>
-      <nav>
+      <nav className="container mx-auto">
         <div className="logo">
-          <h1>FOATE</h1>
+          <img src="./img/logo.svg" alt="logo"/>
         </div>
-        <ul className={menuState ? "toggle" : ""}>
+        <ul className={menuState ? "toggle navMenu" : "navMenu"}>
           <NextLink href="/">
             <a className={pathname == '/' ? 'activeLink' : ''}>Home</a>
           </NextLink>
@@ -32,20 +34,15 @@ export default function Navbar2() {
             &times;
           </li>
         </ul>
-        <div onClick={toggleMenu} className="menu">
-          Menu
+        <div className="menu" onClick={toggleMenu} >
+        <img className="w-6" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAVElEQVRoge3W0Q2AMAxDQRcxOExOhyBSoupuAvvvJQA0WEme7hEVVpKve0SFq3tAFUemuZO83SMAgCIyfppjotGRaWQ8AJxExk9zTDQ6Mo2MB+CPDXJLBiVsKHgMAAAAAElFTkSuQmCC"/>
         </div>
       </nav>
       <style jsx>
         {`
           
           nav {
-            background-image: linear-gradient(
-              -90deg,
-              indigo,
-              rgb(102, 102, 231)
-            );
-            color: #fff;
+            background: rgba(255, 255, 255, 1);
             overflow: hidden;
             display: flex;
             justify-content: space-between;
@@ -56,23 +53,28 @@ export default function Navbar2() {
           }
 
           nav .logo {
-            margin-left: 50px;
+            // margin-left: 50px;
             text-transform: uppercase;
             letter-spacing: 2px;
           }
+          
           nav .logo h1 {
             color: #fff;
           }
 
+          .logo img{
+            width: 100px;
+          }
           nav ul {
             list-style: none;
             margin-right: 50px;
             display: flex;
+            z-index: 1;
           }
           
           nav ul a {
             text-decoration: none;
-            color: #fff;
+            color: #20A3DD;
             text-transform: uppercase;
             opacity: 0.6;
             margin: 0 15px;
@@ -82,7 +84,7 @@ export default function Navbar2() {
             content: "";
             display: block;
             height: 1px;
-            background-color: #fff;
+            background-color: #20A3DD;
             width: 0%;
             transition: all .4s ease;
             opacity: 0;
@@ -93,11 +95,11 @@ export default function Navbar2() {
             opacity: 1;
           }
           nav .activeLink{
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid #20A3DD;
           }
           nav ul a:hover {
             opacity: 1;
-            color: #fff;
+            color: #20A3DD;
             transition: all 0.2s ease-in;
           }
 
@@ -108,7 +110,6 @@ export default function Navbar2() {
             border: 1px solid #fff;
             padding: 10px 20px;
             margin-right: 20px;
-
             display: none;
           }
 

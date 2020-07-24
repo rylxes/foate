@@ -1,35 +1,22 @@
 :root{
   --white: #fff;
-  --primary: #8554ED;
-  --scecondary: #e9bf64;
-  --tertiary: #603dac;
+  --primary: #20A3DD;
+  --scecondary: #FF9800;
+  --tertiary: linear-gradient(-90deg, #B465FE, #20A3DD);
+
 }
 
-/* CSS Resets */
-*,
-*::before,
-*::after{
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-html{
-  font-size: 62.5%;
-  box-sizing: border-box;
+
+.card{
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: var(--primary);
+  color: var(--tertiary);
+  height: 22rem;
 }
 
-a:link,
-a:visited{
-  text-decoration: none;
-  /* color: #fff; */
-}
-
-li{
-  list-style: none;
-}
-
-body{
-  font-weight: 400;
-  line-height: 1.6;
-  font-family: 'Nunito', sans-serif;
+.gradText{
+  background: linear-gradient(-90deg, #B465FE, #20A3DD);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
