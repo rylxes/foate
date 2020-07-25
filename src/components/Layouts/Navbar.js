@@ -1,46 +1,51 @@
 import { useState } from "react";
 import NextLink from "next/link";
-import { useRouter } from 'next/router'
-import { FaBeer } from 'react-icons/fa';
-
+import { useRouter } from "next/router";
+import { FaBeer } from "react-icons/fa";
 
 export default function Navbar2() {
-  
   const [menuState, setMenuState] = useState(false);
   const toggleMenu = () => setMenuState(!menuState);
-  const {pathname} = useRouter();
-  
+  const { pathname } = useRouter();
 
   return (
     <>
       <nav className="container mx-auto">
-        <div className="logo">
-          <img src="./img/logo.svg" alt="logo"/>
-        </div>
+        <NextLink href="/">
+          <a className="logo">
+            <img src="./img/logo.svg" alt="logo" />
+          </a>
+        </NextLink>
         <ul className={menuState ? "toggle navMenu" : "navMenu"}>
           <NextLink href="/">
-            <a className={pathname == '/' ? 'activeLink' : ''}>Home</a>
+            <a className={pathname == "/" ? "activeLink" : ""}>Home</a>
           </NextLink>
           <NextLink href="/about">
-            <a className={pathname == '/about' ? 'activeLink' : ''}>About</a>
+            <a className={pathname == "/about" ? "activeLink" : ""}>About</a>
           </NextLink>
           <NextLink href="/services">
-            <a className={pathname == '/services' ? 'activeLink' : ''}>Services</a>
+            <a className={pathname == "/services" ? "activeLink" : ""}>
+              Services
+            </a>
           </NextLink>
           <NextLink href="/contact">
-            <a className={pathname == '/contact' ? 'activeLink' : ''}>Contact</a>
+            <a className={pathname == "/contact" ? "activeLink" : ""}>
+              Contact
+            </a>
           </NextLink>
           <li onClick={toggleMenu} className="close">
             &times;
           </li>
         </ul>
-        <div className="menu" onClick={toggleMenu} >
-        <img className="w-6" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAVElEQVRoge3W0Q2AMAxDQRcxOExOhyBSoupuAvvvJQA0WEme7hEVVpKve0SFq3tAFUemuZO83SMAgCIyfppjotGRaWQ8AJxExk9zTDQ6Mo2MB+CPDXJLBiVsKHgMAAAAAElFTkSuQmCC"/>
+        <div className="menu" onClick={toggleMenu}>
+          <img
+            className="w-6"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAVElEQVRoge3W0Q2AMAxDQRcxOExOhyBSoupuAvvvJQA0WEme7hEVVpKve0SFq3tAFUemuZO83SMAgCIyfppjotGRaWQ8AJxExk9zTDQ6Mo2MB+CPDXJLBiVsKHgMAAAAAElFTkSuQmCC"
+          />
         </div>
       </nav>
       <style jsx>
         {`
-          
           nav {
             background: rgba(255, 255, 255, 1);
             overflow: hidden;
@@ -57,12 +62,12 @@ export default function Navbar2() {
             text-transform: uppercase;
             letter-spacing: 2px;
           }
-          
+
           nav .logo h1 {
             color: #fff;
           }
 
-          .logo img{
+          .logo img {
             width: 100px;
           }
           nav ul {
@@ -71,35 +76,34 @@ export default function Navbar2() {
             display: flex;
             z-index: 1;
           }
-          
+
           nav ul a {
             text-decoration: none;
-            color: #20A3DD;
+            color: #20a3dd;
             text-transform: uppercase;
             opacity: 0.6;
             margin: 0 15px;
-            
           }
-          nav ul a::after{
+          nav ul a::after {
             content: "";
             display: block;
             height: 1px;
-            background-color: #20A3DD;
+            background-color: #20a3dd;
             width: 0%;
-            transition: all .4s ease;
+            transition: all 0.4s ease;
             opacity: 0;
             margin-top: 2px;
           }
-          nav ul a:hover:after{
+          nav ul a:hover:after {
             width: 100%;
             opacity: 1;
           }
-          nav .activeLink{
-            border-bottom: 1px solid #20A3DD;
+          nav .activeLink {
+            border-bottom: 1px solid #20a3dd;
           }
           nav ul a:hover {
             opacity: 1;
-            color: #20A3DD;
+            color: #20a3dd;
             transition: all 0.2s ease-in;
           }
 

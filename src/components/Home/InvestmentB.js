@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function InvestmentB() {
   return (
-    <div className="container">
+    <div className="container mx-auto">
       <div className="flex flex-wrap justify-between items-center my-32 ">
         <div className="w-1/2">
           <img src="./img/flats.svg" alt="flats" />
