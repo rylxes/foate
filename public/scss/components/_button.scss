@@ -1,0 +1,56 @@
+.btn{
+  padding: 2rem 2.5rem;
+  color: $white;
+  background: $secondary;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  font-family: inherit;
+  box-shadow: 0 10px 6px -6px #777;
+  cursor: pointer;
+  @include transition;
+
+  &:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 5px 3px -3px #777;
+    background: $secondary_2;
+  }
+}
+
+
+.btn-group{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2rem 2.5rem;
+  color: $white;
+  background: $secondary;
+  border-radius: 0 100px 100px 0;
+  outline: none;
+  border: none;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  font-family: inherit;
+  cursor: pointer;
+  @include transition;
+
+  &:hover{
+    background: $secondary_2;
+  }
+
+  &__input{
+    font-size: 1.8rem;
+    padding: 1.7rem 2.5rem;
+    color: $gray;
+    border-radius: 100px;
+    outline: none;
+    border: none;
+    margin: 1rem 0;
+    font-family: inherit;
+    box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .3);
+    width: 38rem;
+  }
+  
+}

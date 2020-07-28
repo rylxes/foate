@@ -29,6 +29,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
+    "sass": "^1.26.10",
     "tailwindcss": "^1.5.1"
   }
 }

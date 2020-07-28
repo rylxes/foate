@@ -6,6 +6,10 @@
 
 }
 
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
 
 .card{
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -19,4 +23,27 @@
   background: linear-gradient(-90deg, #B465FE, #20A3DD);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hero{
+  position: relative;
+  height: 100vh;
+
+}
+.hexagon{
+  position: absolute;
+  right: -20%;
+  top: -30%;
+}
+
+
+
+@media (max-width: 640px) { 
+  .hero{
+    display: flex;
+    margin-top: 5rem;
+    height: 500px;
+    text-align: center;
+    
+  }
 }

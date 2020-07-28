@@ -1,0 +1,32 @@
+.newsletter{
+  background: $primary;
+  color: $white;
+  padding: 2rem 0;
+  
+  // @include media("<=700px"){
+  //   // text-align: center;
+  // }
+
+  &__content{
+    margin: 4rem auto; 
+  }
+  
+  &__subscribe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title{
+    font-weight: 300;
+    font-size: 4rem;
+    text-align: center;
+  }
+  
+  &__form{
+    margin: 3rem auto;
+    display: inline-flex;
+    position: relative;
+  }
+
+}

@@ -1,0 +1,64 @@
+.footer{
+  padding: 5rem 0;
+
+
+  &__content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    justify-items: center;
+    align-items: start;
+    gap: 6rem;
+    color: $white;
+    
+    & a:link{
+      transition: all .3s ease-in;
+    }
+  
+    & a:hover{
+      color: $secondary;
+    }
+
+    &-title{
+      font-size: 2rem;
+      border-bottom: 1px solid $secondary;
+      color: $secondary;
+      text-align: center;
+    }
+
+    &-contact{
+      line-height: 1.5;
+      margin-top: 1rem;
+      font-weight: 300;
+      font-size: 1.8rem;
+    }
+
+    &-links{
+      font-size: 1.8rem;
+      line-height: 1.5;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-weight: 300; 
+    }
+
+    &-socials{
+      font-size: 2rem;
+      line-height: 1.5;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-weight: 300;
+    } 
+  }
+
+  &__secondary{
+    font-size: 1.8rem;
+    background: $primary;
+    padding: 3rem;
+    color: $white;
+    text-align: center;
+    font-weight: 300;
+  }
+}

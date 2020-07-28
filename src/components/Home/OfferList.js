@@ -29,15 +29,17 @@ export default function OfferList() {
     },
   ];
   return (
-    <div className="container mx-auto">
-      <div className="container flex flex-wrap my-64 justify-between">
-        {cardData.map((data, index) => {
-          return (
-            <div key={index}>
-              <Offer cardData={data} />
-            </div>
-          );
-        })}
+    <div className="container ">
+      <div className="offer-list">
+        <div className="offer-list__content">
+          {cardData.map((data, index) => {
+            return (
+              <div className="offer-card__wrap" key={index}>
+                <Offer cardData={data} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

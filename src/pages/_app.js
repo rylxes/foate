@@ -1,5 +1,6 @@
-import '../../public/css/styles.css'
-import '../../public/css/tailwind.css'
+// import '../../public/css/styles.css'
+import '../../public/scss/main.scss'
+// import '../../public/css/tailwind.css'
 
 import Head from 'next/head'
 import Navbar from '../components/Layouts/Navbar'
@@ -8,7 +9,7 @@ import Footer from '../components/Layouts/Footer'
 
 const MyAPP = ({ Component, pageProps }) => {
   return (
-    <div className="overflow-hidden">
+    <div className="app">
       <Head>
         <title>FOATE with ANT DESIGN</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap" rel="stylesheet"></link>

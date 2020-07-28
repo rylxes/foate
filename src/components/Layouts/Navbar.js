@@ -74,7 +74,7 @@ export default function Navbar2() {
             list-style: none;
             margin-right: 50px;
             display: flex;
-            z-index: 1;
+            z-index: 3;
           }
 
           nav ul a {
