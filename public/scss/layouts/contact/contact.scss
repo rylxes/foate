@@ -1,0 +1,53 @@
+.contact {
+  background: $gray_light;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+  &__form {
+    @include shadow;
+    background: $white;
+    width: 60rem;
+    margin: 0 auto;
+    padding: 1rem 7rem;
+
+
+    & h1 {
+      color: $primary;
+      text-align: center;
+      font-weight: 400;
+      font-size: 2.5rem;
+      margin: 5rem 0;
+    }
+
+    &-group{
+      margin: 3rem 0;
+    }
+
+    & label{
+      color: $primary;
+    }
+  
+    &-input, &-textarea{
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid $primary;
+      padding: 1rem;
+      margin: .5rem 0;
+      outline: none;
+    }
+
+    
+    &-textarea{
+      height: 10rem;
+    }
+
+    & .btn{
+      width:100%;
+      margin: .5rem 0 4rem;
+    }
+  }
+}
