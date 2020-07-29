@@ -1,14 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&display=swap");
+
+// Base styles
 @import "./variables.scss";
 @import "./mixins.scss";
 @import "./breakpoints.scss";
-@import "./layouts/hero.scss";
-@import "./layouts/offer.scss";
-@import "./layouts/listing.scss";
-@import "./layouts/investment.scss";
-@import "./layouts/newsletter.scss";
-@import "./layouts/footer.scss";
 @import "./components/button.scss";
+
+// Layout Styles
+@import "./layouts/footer.scss";
+@import "./layouts/header.scss";
+
+// Home Page Styles
+@import "./layouts/home/hero.scss";
+@import "./layouts/home/offer.scss";
+@import "./layouts/home/listing.scss";
+@import "./layouts/home/investment.scss";
+@import "./layouts/home/newsletter.scss";
+
+// About Page styles
+@import "./layouts/about/about.scss";
 
 
 *,

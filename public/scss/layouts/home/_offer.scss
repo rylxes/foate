@@ -1,0 +1,76 @@
+.offer-list{
+  z-index: 2;
+  margin: 16rem auto;
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+}
+
+
+.offer-card{
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  
+  text-align: center;
+  width: 25rem;
+  padding-top: 2.5rem;
+  background-color: $primary;
+  height: 32rem;
+  margin-top: 2rem;
+
+
+  &__icon{
+    background: $white;
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  &__title{
+    font-size: 1.9rem;
+    margin: .8rem 0;
+    color: $white;
+    display: block;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+
+  &__content{
+    font-size: 1.4rem;
+    font-weight: 100;
+    line-height: 1.4;
+    padding: 0.25rem;
+    color: $white;
+  }
+
+  &__img{
+    width: 4.5rem;
+  }
+
+  &__wrap{
+    filter: drop-shadow(-1px 6px 3px rgba(0, 46, 83, 0.5));
+  }
+}
+
+
+@include media("<=1100px") { 
+  .offer-list{
+    margin: 10rem auto;
+  
+    &__content{
+      justify-content: space-evenly;
+    }
+  }
+
+  // .offer-card{
+  //   width: 14rem;
+  //   height: 20rem;
+  // }
+
+}
