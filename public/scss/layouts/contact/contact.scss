@@ -1,53 +1,90 @@
 .contact {
   background: $gray_light;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 5rem;
 
-  
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 5rem;
+    
+  }
+
+  &__text {
+    width: 40%;
+
+    & h1 {
+      color: $primary;
+      font-weight: 400;
+      font-size: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    & p {
+      font-size: 1.7rem;
+      color: $gray;
+      margin: 0.5rem 0;
+      font-weight: 500;
+      margin: 2rem 0;
+    }
+
+    & a {
+      color: $primary;
+      margin-right: 3rem;
+      font-size: 2.5rem;
+    }
+
+    &-social {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 1rem 0;
+    }
+  }
+
   &__form {
+    width: 50%;
     @include shadow;
     background: $white;
-    width: 60rem;
     margin: 0 auto;
     padding: 1rem 7rem;
-
 
     & h1 {
       color: $primary;
       text-align: center;
       font-weight: 400;
       font-size: 2.5rem;
-      margin: 5rem 0;
-    }
-
-    &-group{
       margin: 3rem 0;
     }
 
-    & label{
+    &-group {
+      margin: 3rem 0;
+    }
+
+    & label {
       color: $primary;
     }
-  
-    &-input, &-textarea{
+
+    &-input,
+    &-textarea {
       display: block;
       width: 100%;
       border-radius: 5px;
       border: 1px solid $primary;
       padding: 1rem;
-      margin: .5rem 0;
+      margin: 0.5rem 0;
       outline: none;
     }
 
-    
-    &-textarea{
+    &-textarea {
       height: 10rem;
     }
 
-    & .btn{
-      width:100%;
-      margin: .5rem 0 4rem;
+    & .btn {
+      width: 100%;
+      margin: 0.5rem 0 4rem;
     }
   }
 }

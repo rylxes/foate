@@ -1,0 +1,123 @@
+.invest {
+  &__content {
+    & h4 {
+      font-weight: 400;
+      font-size: 2.5rem;
+      margin-top: 8rem;
+      color: $primary;
+    }
+
+    & p{
+      line-height: 1.5;
+      margin-bottom: 5rem;
+    }
+  }
+
+  &__cards-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $gray-light;
+    padding: 5rem;
+  }
+
+  // Flip Card
+  &__card-container{
+    width: 30rem;
+    height: 50rem;
+    perspective: 150rem;
+    cursor: pointer;
+    margin-bottom: 5rem;
+  }
+
+  &__card-active{
+    width: 35rem;
+    height: 55rem;
+    
+    & .invest__card-front{
+      border: 2px solid $primary;
+    }
+  }
+
+  
+  &__card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform .4s ease-in;
+    transform-style: preserve-3d;
+    @include shadow;
+    
+    
+    &-front, &-back{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      color: $gray; 
+    }
+    
+    &-front {
+      background-color: $white;
+    }
+
+    &-back {
+      background-image: linear-gradient(135deg, $white, $primary);
+      transform: rotateY(180deg);
+    }
+
+    &-container:hover &{
+      transform: rotateY(180deg);
+    }
+
+    &-title{
+      font-size: 3rem;
+      display: grid;
+      place-items: center;
+      color: $primary;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    &-amount{
+      font-size: 6rem;
+      display: grid;
+      place-items: center;
+      margin:2rem 0 ;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    &-services{
+      display: grid;
+      place-items: center;
+      margin: 2rem 0 ;
+      font-weight: 400;
+
+      & li{
+        margin: 2rem 0;
+
+        &::before{
+          content: '✔️ ';
+        }
+      }
+    }
+
+    &-recommend{
+      background: $primary;
+      color: $white;
+      padding: 1rem 2rem;
+      @include shadow;
+      text-transform: uppercase;
+      display: block;
+      margin: 5rem 0;
+      text-align: center;
+    }
+  }
+}
+
+.empty{
+  margin-bottom: 10rem;
+  display: block;
+}
