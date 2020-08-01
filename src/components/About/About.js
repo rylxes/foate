@@ -1,6 +1,6 @@
 import TeamCard from "./TeamCard";
 
-export default function Index() {
+export default function About() {
   return (
     <div className="about">
       <div className="header">

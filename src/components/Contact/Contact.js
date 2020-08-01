@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 
-export default function Index() {
+export default function Contact() {
   return (
     <div className="contact">
       <div className="header">

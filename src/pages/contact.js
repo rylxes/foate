@@ -1,4 +1,4 @@
-import Contact from '../components/Contact/Index'
+import Contact from '../components/Contact/Contact'
 
 export default function contact() {
   return (
