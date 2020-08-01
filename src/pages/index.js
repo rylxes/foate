@@ -1,11 +1,11 @@
 import Home from '../components/Home'
  
-export default function index({users}) {
+export default function index() {
   // console.log(users)
   return (
     <div>
       <Home/>
-      <pre>{JSON.stringify(users, null, 4)}</pre>
+      {/* <pre>{JSON.stringify(users, null, 4)}</pre> */}
     </div>
   )
 }
