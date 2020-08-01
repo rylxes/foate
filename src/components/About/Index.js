@@ -1,4 +1,4 @@
-import TeamCard from './TeamCard'
+import TeamCard from "./TeamCard";
 
 export default function Index() {
   return (
@@ -50,16 +50,15 @@ export default function Index() {
         <div className="container">
           <div className="about__services">
             <div className="about__img-group">
-
-            <img
-              className="about__img-1"
-              src="./img/skyscrapper.jpg"
-              alt="About us"
+              <img
+                className="about__img-1"
+                src="./img/skyscrapper.jpg"
+                alt="About us"
               />
-            <img
-              className="about__img-2"
-              src="./img/teamwork.jpg"
-              alt="About us"
+              <img
+                className="about__img-2"
+                src="./img/teamwork.jpg"
+                alt="About us"
               />
             </div>
 
@@ -75,7 +74,7 @@ export default function Index() {
                 eligendi ipsam similique fugit incidunt est impedit
                 reprehenderit nobis excepturi dolorem.
               </p>
-              
+
               <h4>Mission</h4>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
@@ -98,19 +97,28 @@ export default function Index() {
           <div className="about__team">
             <h4>Our Team</h4>
             <div className="about__team-cardList">
-              {
-                [
-                  {name: 'Sarah Moore', role: 'CEO', avatar: 'avi4.jpg'},
-                  {name: 'Andrew Peters', role: 'CTO', avatar: 'avi2.png'},
-                  {name: 'Mike Sanders', role: 'Head of Talent', avatar: 'avi3.png'},
-                  {name: 'Vivian Shaw', role: 'Head of Marketing', avatar: 'avi1.png'}
-                ].map((_, i)=> <div key={i}><TeamCard cardData={_} /></div>)
-              }
+              {[
+                { name: "Sarah Moore", role: "CEO", avatar: "avi4.jpg" },
+                { name: "Andrew Peters", role: "CTO", avatar: "avi2.png" },
+                {
+                  name: "Mike Sanders",
+                  role: "Head of Talent",
+                  avatar: "avi3.png",
+                },
+                {
+                  name: "Vivian Shaw",
+                  role: "Head of Marketing",
+                  avatar: "avi1.png",
+                },
+              ].map((_, i) => (
+                <div key={i}>
+                  <TeamCard cardData={_} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </div>
-
-  )
+  );
 }

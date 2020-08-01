@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { FaTwitter, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 
 export default function TeamCard({ cardData }) {
