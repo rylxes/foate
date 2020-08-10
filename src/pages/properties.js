@@ -1,9 +1,9 @@
-import React from 'react'
+import Properties from '../components/Properties/Properties'
 
 export default function services() {
   return (
     <div>
-      <h1>Services Page</h1>
+      <Properties/>
     </div>
   )
 }

@@ -23,6 +23,11 @@ export default function Navbar2() {
           <NextLink href="/about">
             <a className={pathname == "/about" ? "activeLink" : ""}>About</a>
           </NextLink>
+          <NextLink href="/properties">
+            <a className={pathname == "/properties" ? "activeLink" : ""}>
+              Properties
+            </a>
+          </NextLink>
           <NextLink href="/investments">
             <a className={pathname == "/investments" ? "activeLink" : ""}>
               Investments

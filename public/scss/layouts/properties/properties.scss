@@ -1,0 +1,75 @@
+.properties{
+
+  &__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  &__sidebar{
+    width: 30%;
+    padding: 5rem 5rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    min-height: 110vh;
+
+    & h4{
+      color: $primary;
+      margin-bottom: 1rem;
+      font-size: 1.7rem;
+      border-bottom: 1px solid rgba($color: $primary, $alpha: .2);
+    }
+
+    &-type > div, &-building > div, &-filter > div{
+      margin-top: 1.5rem;
+    }
+
+    & label{
+      margin: 0 1rem;
+      cursor: pointer;
+    }
+
+    & input[type=checkbox]{
+      cursor: pointer;
+    }
+
+    & input[type=text], & select{
+      border-radius: .5rem;
+      padding: .4rem;
+      width: 12rem;
+      outline: none;
+      border: .2px solid #ccc;
+    }
+
+
+    &-filter, &-sort{
+      & label{
+        margin-left: 0;
+      }
+    }    
+
+  }
+
+  &__main{
+    width: 70%;
+    border-left: 1px solid #ccc;
+    background: $gray-light;
+    padding: 8rem;
+  }
+  
+  &__cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-gap: 2.5rem;
+  }
+
+  // Card classes
+  &__card{
+    background: $white;
+    border-radius: 10px;
+    min-height: 25rem;
+    @include shadow;
+  }
+
+}
