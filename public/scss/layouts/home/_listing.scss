@@ -40,7 +40,7 @@
   overflow: hidden;
   cursor: pointer;
   width: 30rem;
-  height: 32rem;
+  height: 36rem;
 
   &__img{
     width: 100%;
@@ -57,10 +57,18 @@
     font-size: 2rem;
     font-weight: 400;
     color: $primary;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: $gray;
+    
   }
 
   &__stat{
+    margin-top: 1.5rem;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-items: center;

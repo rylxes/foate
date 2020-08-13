@@ -13,7 +13,7 @@ export default function Navbar2() {
       <nav className="container mx-auto">
         <NextLink href="/">
           <a className="logo">
-            <img src="./img/logo.svg" alt="logo" />
+            <img src="/img/logo.svg" alt="logo" />
           </a>
         </NextLink>
         <ul className={menuState ? "toggle navMenu" : "navMenu"}>

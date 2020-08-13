@@ -1,5 +1,6 @@
 // import '../../public/css/styles.css'
 import '../../public/scss/main.scss'
+
 // import '../../public/css/tailwind.css'
 
 import Head from 'next/head'

@@ -4,12 +4,12 @@ export default function ListingItem({ cardData }) {
   return (
     <NextLink href="/">
 
-    <div className="listing-card rounded-lg shadow-lg overflow-hidden">
+    <div className="listing-card">
       <img src={`./img/${cardData.img}`} alt="property thumbnail" className="listing-card__img"/>
 
       <div className="listing-card__content">
         
-        <h5 className="listing-card__title text-center py-6 text-primary text-lg">{cardData.location}</h5>
+        <h5 className="listing-card__title">{cardData.location}</h5>
 
         <div className="listing-card__stat">
           <img src="./img/size.svg" alt="property size" />

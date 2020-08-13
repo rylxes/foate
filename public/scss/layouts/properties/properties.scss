@@ -1,75 +1,160 @@
-.properties{
-
-  &__container{
+.properties {
+  &__container {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+    min-height: 100vh;
   }
 
-  &__sidebar{
+  & h3 {
+    text-align: center;
+    color: $white;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    border-bottom: 1px solid rgba($color: $primary, $alpha: 0.2);
+  }
+
+  &__sidebar {
     width: 30%;
     padding: 5rem 5rem;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    min-height: 110vh;
 
-    & h4{
+    & h4 {
       color: $primary;
       margin-bottom: 1rem;
       font-size: 1.7rem;
-      border-bottom: 1px solid rgba($color: $primary, $alpha: .2);
+      border-bottom: 1px solid rgba($color: $primary, $alpha: 0.2);
     }
 
-    &-type > div, &-building > div, &-filter > div{
+    &-type > div,
+    &-building > div,
+    &-filter > div {
       margin-top: 1.5rem;
     }
 
-    & label{
+    & label {
       margin: 0 1rem;
       cursor: pointer;
     }
 
-    & input[type=checkbox]{
+    & input[type="checkbox"],
+    & select {
       cursor: pointer;
     }
 
-    & input[type=text], & select{
-      border-radius: .5rem;
-      padding: .4rem;
+    & input[type="text"],
+    & select {
+      border-radius: 0.5rem;
+      padding: 0.4rem;
       width: 12rem;
       outline: none;
-      border: .2px solid #ccc;
+      border: 0.2px solid #ccc;
     }
 
-
-    &-filter, &-sort{
-      & label{
+    &-filter,
+    &-sort {
+      & label {
         margin-left: 0;
       }
-    }    
-
+    }
   }
 
-  &__main{
+  &__main {
     width: 70%;
     border-left: 1px solid #ccc;
     background: $gray-light;
-    padding: 8rem;
+    padding: 8rem 5rem;
   }
-  
-  &__cards{
+
+  &__cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2.5rem;
   }
 
-  // Card classes
-  &__card{
-    background: $white;
-    border-radius: 10px;
-    min-height: 25rem;
-    @include shadow;
+  // Carousel Styles
+  &__detail {
+    &-carousel {
+      width: 100%;
+      height: 60rem;
+      object-fit: cover;
+      margin-top: 10rem;
+    }
+
+    &-group {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 1.5rem 0 3rem;
+    }
+
+    &-wrapper {
+      transform: scale(1);
+      transition: transform 0.3s ease-in;
+    }
+
+    &-animate {
+      border: 2px solid $primary;
+      transform: scale(1.2);
+    }
+
+    &-thumbnail {
+      cursor: pointer;
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+    }
   }
 
+  //
+  &__feature {
+    overflow: hidden;
+    width: 100%;
+    margin: 2rem 0 8rem;
+
+    &-stat {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      justify-items: center;
+      align-items: center;
+      max-height: 100%;
+      color: #333;
+    }
+
+    h5 {
+      color: $primary;
+      border-bottom: 1px solid $primary;
+      font-size: 2rem;
+      font-weight: 400;
+      margin: 5rem 0 1rem;
+    }
+
+    &-list {
+      margin: 1rem 0 8rem;
+
+      & ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      & li {
+        &::before {
+          content: "\2713";
+          display: inline;
+          color: $white;
+          background: $primary;
+          border-radius: 100px;
+          padding: 0.5rem 1rem;
+          margin-right: 0.3rem;
+        }
+      }
+    }
+
+
+  }
 }

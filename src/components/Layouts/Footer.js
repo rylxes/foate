@@ -6,7 +6,7 @@ import Newsletter from './Newsletter'
 
 export default function Footer() {
   const styles = {
-    background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .85)), url('./img/london.jpg')`,
+    background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .85)), url('/img/london.jpg')`,
     backgroundPosition: "center top",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="footer__content">
 
             <div>
-              <img src="./img/logo.svg" alt="logo"/>
+              <img src="/img/logo.svg" alt="logo"/>
               <ul className="footer__content-contact">
                 <li>
                   <a href="">10 Bird Street London</a>
