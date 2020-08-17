@@ -1,7 +1,7 @@
 import React from "react";
 import ListingItem from "./ListingItem";
 
-export default function Listing() {
+export default function Listing({properties}) {
   const cardData = [
     {
       img: "home1.jpg",
@@ -61,10 +61,10 @@ export default function Listing() {
         </h1>
         <div className="">
           <div className="listing__content">
-            {cardData.map((item, index) => {
+            {properties.map((property, index) => {
               return (
                 <div key={index}>
-                  <ListingItem cardData={item} />
+                  <ListingItem cardData={property} />
                 </div>
               );
             })}

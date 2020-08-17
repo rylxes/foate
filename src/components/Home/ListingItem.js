@@ -1,15 +1,17 @@
 import NextLink from "next/link";
+import slugify from 'slugify'
 
 export default function ListingItem({ cardData }) {
   return (
-    <NextLink href="/">
+    <NextLink href={`/properties/${slugify(cardData.street).toLowerCase()}`}>
 
     <div className="listing-card">
-      <img src={`./img/${cardData.img}`} alt="property thumbnail" className="listing-card__img"/>
+      <img src={cardData.images[0].url} alt={cardData.street} className="listing-card__img"/>
 
       <div className="listing-card__content">
         
-        <h5 className="listing-card__title">{cardData.location}</h5>
+        <h5 className="listing-card__title">{cardData.street}</h5>
+        <span className="listing-card__subtitle">{cardData.city}</span>
 
         <div className="listing-card__stat">
           <img src="./img/size.svg" alt="property size" />
