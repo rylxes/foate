@@ -65,9 +65,11 @@ export default function investment() {
             wealth creation) to property investment meaning you don’t need
             massive savings to start creating wealth.
           </p>
-          <button style={{textAlign: 'center'}} type="submit" className="btn">
-            Get started
-          </button>
+          <div style={{display:'flex', justifyContent:'center', margin:'-5rem 0 5rem'}}>
+            <button type="submit"className="btn">
+              Get started
+            </button>
+          </div>
         </div>
         <div className="invest__cards-list">
           {[

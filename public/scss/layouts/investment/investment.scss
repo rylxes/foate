@@ -31,6 +31,10 @@
       & img{
         width: 25%;
       }
+      & .btn{
+        display: grid;
+        place-items: center;
+      }
 
       & > div{
         text-align: center;
