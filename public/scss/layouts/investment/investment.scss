@@ -3,13 +3,40 @@
     & h4 {
       font-weight: 400;
       font-size: 2.5rem;
-      margin-top: 8rem;
+      margin-top: 10rem;
       color: $primary;
+      text-align: center;
     }
 
     & p{
-      line-height: 1.5;
+      line-height: 1.8;
+      text-align: center;
+      font-size: 1.8rem;
       margin-bottom: 5rem;
+    }
+
+    & img{
+      width: 100%;
+    }
+
+    &-how{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      & p {
+        font-weight: bold;
+      }
+      & img{
+        width: 25%;
+      }
+
+      & > div{
+        text-align: center;
+        width: 40rem;
+        margin-top: 3rem;
+      }
     }
   }
 
@@ -33,6 +60,8 @@
   &__card-active{
     width: 35rem;
     height: 55rem;
+    margin-left: .3rem;
+    margin-right: .3rem;
     
     & .invest__card-front{
       border: 2px solid $primary;
@@ -41,6 +70,7 @@
 
   
   &__card {
+    position: relative;
     width: 100%;
     height: 100%;
     position: relative;
@@ -59,11 +89,37 @@
     
     &-front {
       background-color: $white;
+      & img{
+        width: 100%;
+      }
+      p{
+        margin: 0 2rem;
+        text-align: center;
+        line-height: 2rem;
+      }
     }
 
     &-back {
-      background-image: linear-gradient(135deg, $white, $primary);
+      color: $white;
+      background: linear-gradient(-135deg, #001924 0%, rgba(32,163,221,1) 35%, rgba(0,212,255,1) 100%);
       transform: rotateY(180deg);
+      padding:  0 1.5rem;
+      
+      & li{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        & i{
+          margin-right: 1.5rem;
+          padding: 1.3rem;
+        }
+        & span h5{
+          font-size: 1.5rem;
+          margin-top: -1rem;
+        }
+      }
     }
 
     &-container:hover &{
@@ -77,6 +133,7 @@
       color: $primary;
       text-transform: uppercase;
       font-weight: 700;
+      margin: 5rem 0 1rem;
     }
 
     &-amount{
@@ -95,29 +152,34 @@
       margin: 2rem 0 ;
       font-weight: 400;
 
+      & i {
+        border: 2px solid $white;
+        border-radius: 50%;
+        padding: 1rem;
+        background: $primary;
+        color: $white;
+      }
       & li{
         margin: 2rem 0;
-
-        &::before{
-          content: '✔️ ';
-        }
       }
     }
 
     &-recommend{
+      width: 100%;
+      opacity: .9;
+      position: absolute;
       background: $primary;
       color: $white;
       padding: 1rem 2rem;
       @include shadow;
       text-transform: uppercase;
       display: block;
-      margin: 5rem 0;
+      margin: 1rem 0;
       text-align: center;
     }
   }
 }
 
 .empty{
-  margin-bottom: 10rem;
   display: block;
 }

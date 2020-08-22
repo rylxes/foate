@@ -6,7 +6,7 @@ import Newsletter from './Newsletter'
 
 export default function Footer() {
   const styles = {
-    background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .85)), url('/img/london.jpg')`,
+    background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .85)), url('/img/london_2.jpg')`,
     backgroundPosition: "center top",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",

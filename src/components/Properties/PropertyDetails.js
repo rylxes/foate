@@ -39,7 +39,7 @@ const PropertiesDetails = ({ currentCard }) => {
             <ReactMarkDown source={currentCard.description} />
           </div>
           <br />
-          <img src="/img/Manchester_map.svg" alt="" />
+          <img src="/img/manu.png" alt="" />
         </div>
 
         <form className="contact__form">
