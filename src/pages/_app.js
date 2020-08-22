@@ -1,24 +1,25 @@
-// import '../../public/css/styles.css'
-import '../../public/scss/main.scss'
+import Head from "next/head";
+import Navbar from "../components/Layouts/Navbar";
+import Footer from "../components/Layouts/Footer";
 
-// import '../../public/css/tailwind.css'
-
-import Head from 'next/head'
-import Navbar from '../components/Layouts/Navbar'
-import Footer from '../components/Layouts/Footer'
-
+import "../../public/scss/main.scss";
+import { ContentProvider } from "../context/ContentContext";
 
 const MyAPP = ({ Component, pageProps }) => {
   return (
     <div className="app">
       <Head>
         <title>FOATE with ANT DESIGN</title>
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap" rel="stylesheet"></link>
-        {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/> */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
-      <Navbar/>
-      <Component {...pageProps} />
-      <Footer/>
+      <ContentProvider>
+        <Navbar />
+        <Component {...pageProps} />
+      </ContentProvider>
+      <Footer />
     </div>
   );
 };
