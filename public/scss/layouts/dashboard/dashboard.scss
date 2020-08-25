@@ -1,0 +1,151 @@
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 90vh;
+
+  & i {
+    margin: 0 0.5rem;
+  }
+
+  &__sidebar {
+    background: $primary_4;
+    width: 20%;
+    color: $white;
+    text-align: center;
+
+    &-header {
+      background: $primary_5;
+      height: 10vh;
+      width: 100%;
+      padding: 0 4rem;
+
+      & h2 {
+        padding: 2rem 0;
+        font-weight: 400;
+      }
+    }
+
+    &-content {
+      margin-top: 5rem;
+
+      & ul {
+        border-top: 1px solid #ccc;
+        height: 30rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      & li {
+        border-bottom: 1px solid #ccc;
+        font-size: 1.7rem;
+        width: 100%;
+        padding: 2.6rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+
+        &:hover {
+          background: $primary_5;
+        }
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+    &-header {
+      height: 10vh;
+      @include shadow;
+      background: $gray_2;
+      padding: 0 4rem;
+      z-index: 2;
+      box-shadow: 1px 6px 9px -3px rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.8rem;
+      color: $primary_4;
+
+      & h5 {
+        margin-right: auto;
+      }
+
+      & span {
+        margin-left: 4rem;
+      }
+    }
+
+    &-content {
+      flex: 1;
+      background: $gray-light;
+      padding: 5rem;
+    }
+    
+    &-chart{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 5rem;
+      width: 100%;
+
+      & div{
+        @include shadow;
+        width: 45%;
+        background: $white;
+      }
+    }
+
+    &-table {
+      background: $white;
+      padding: 2rem;
+      width: 100%;
+      @include shadow;
+
+      & button{
+        padding: .5rem 1rem;
+        color: $white;
+        margin-left: .5rem;
+        outline: none;
+        border: none;
+      }
+
+      & th,
+      & td {
+        padding: 2rem;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+
+        & button{
+          padding: .5rem 1rem;
+          color: $white;
+          margin-left: .5rem;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          box-shadow: 1px 6px 9px -3px rgba(0, 0, 0, 0.5);
+
+        
+        }
+
+        & .btn-green{
+          background: #529152;
+        }
+        & .btn-blue{
+          background: #57d5eb;
+        }
+        & .btn-red{
+          background: #e66259;
+        }
+
+      }
+      & table{
+        max-width: 100%;
+      }
+    }
+  }
+}

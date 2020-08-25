@@ -19,7 +19,7 @@ export default function ListingItem({ cardData }) {
           <img src="./img/bed.svg" alt="property bedrooms"/>
           <span>{cardData.size}</span>
           <span>{cardData.bathrooms}</span>
-          <span>{cardData.bedrooms}</span>
+          <span>{cardData.beds}</span>
         </div>
         <p className="listing-card__amount">
           £{cardData.amount}/month

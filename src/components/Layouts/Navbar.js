@@ -38,6 +38,11 @@ export default function Navbar2() {
               Contact
             </a>
           </NextLink>
+          <NextLink href="/login">
+            <a className={pathname == "/login" ? "activeLink" : ""}>
+              Login
+            </a>
+          </NextLink>
           <li onClick={toggleMenu} className="close">
             &times;
           </li>
