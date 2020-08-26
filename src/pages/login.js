@@ -27,7 +27,6 @@ export default function login() {
       body: JSON.stringify({email, password})
     });
     const msg = await res.json();
-    console.log({email, password, msg});
     if(msg.message === 'OK'){
       router.replace('/dashboard')
     }

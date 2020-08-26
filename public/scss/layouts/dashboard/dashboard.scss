@@ -13,6 +13,8 @@
     width: 20%;
     color: $white;
     text-align: center;
+    z-index: 2;
+    box-shadow: 6px 2px 8px -3px rgba(0, 0, 0, 0.5);
 
     &-header {
       background: $primary_5;
@@ -31,7 +33,6 @@
 
       & ul {
         border-top: 1px solid #ccc;
-        height: 30rem;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -41,13 +42,18 @@
         border-bottom: 1px solid #ccc;
         font-size: 1.7rem;
         width: 100%;
-        padding: 2.6rem;
+        padding: 3rem;
         cursor: pointer;
         transition: all 0.3s ease-in;
 
         &:hover {
           background: $primary_5;
         }
+        
+        &.dashLink {
+          background: $primary_5;
+        }
+    
       }
     }
   }
@@ -92,10 +98,11 @@
       flex-wrap: wrap;
       margin-bottom: 5rem;
       width: 100%;
-
+      
       & div{
+        padding: 2rem;
         @include shadow;
-        width: 45%;
+        width: 48%;
         background: $white;
       }
     }
@@ -128,8 +135,6 @@
           border: none;
           cursor: pointer;
           box-shadow: 1px 6px 9px -3px rgba(0, 0, 0, 0.5);
-
-        
         }
 
         & .btn-green{

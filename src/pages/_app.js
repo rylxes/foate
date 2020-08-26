@@ -1,12 +1,19 @@
 import Head from "next/head";
 import Navbar from "../components/Layouts/Navbar";
 import Footer from "../components/Layouts/Footer";
-
-import "../../public/scss/main.scss";
 import { ContentProvider } from "../context/ContentContext";
+import "../../public/scss/main.scss";
+
+
+
+
 
 
 const MyAPP = ({ Component, pageProps }) => {
+  
+  // Check if page has static layout prop.
+  const Layout = Component.Layout || EmptyLayout;
+
   return (
     <div className="app">
       <Head>
@@ -20,13 +27,18 @@ const MyAPP = ({ Component, pageProps }) => {
           rel="stylesheet"
         ></link>
       </Head>
-        <ContentProvider>
-          <Navbar />
+      <ContentProvider>
+        <Navbar />
+        <Layout>
           <Component {...pageProps} />
-        </ContentProvider>
+        </Layout>
+      </ContentProvider>
       <Footer />
     </div>
   );
 };
 
 export default MyAPP;
+
+// Setup empty layout alternative.
+const EmptyLayout = ({ children }) => <>{children}</>;
