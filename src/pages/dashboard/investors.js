@@ -9,6 +9,7 @@ export default function investors() {
       </Head>
       <div>
         <h1>Investors</h1>
+        <button className="btn">Add New</button>
       </div>
     </>
   );

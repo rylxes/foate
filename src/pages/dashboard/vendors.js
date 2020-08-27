@@ -1,5 +1,7 @@
 import DashboardLayout from '../../components/Layouts/DashboardLayout';
 import Head from 'next/head';
+import Table from '../../components/Dashboard/Home/Table'
+
 
 export default function vendors() {
   return (
@@ -9,6 +11,7 @@ export default function vendors() {
       </Head>
       <div>
         <h1>Vendors</h1>
+        <Table/>
       </div>
     </>
   )

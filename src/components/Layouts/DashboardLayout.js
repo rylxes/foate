@@ -18,21 +18,21 @@ export default function DashboardLayout({ children }) {
               <NextLink href="/dashboard" >
                 <li className={pathname == "/dashboard" ? "dashLink" : ""}>
                   <a>
-                    <i className="fa fa-users"></i> Home
+                    <i className="fa fa-home"></i> Home
                   </a>
                 </li>
               </NextLink>
               <NextLink href="/dashboard/vendors" >
                 <li className={pathname == "/dashboard/vendors" ? "dashLink" : ""}>
                   <a>
-                    <i className="fa fa-users"></i> Vendors
+                    <i className="fa fa-gears"></i> Vendors
                   </a>
                 </li>
               </NextLink>
               <NextLink href="/dashboard/investors">
                 <li className={pathname == "/dashboard/investors" ? "dashLink" : ""}>
                   <a>
-                    <i className="fa fa-users"></i> Investors
+                    <i className="fa fa-money"></i> Investors
                   </a>
                 </li>
               </NextLink>
