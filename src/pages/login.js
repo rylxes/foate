@@ -19,7 +19,10 @@ export default function login() {
   });
   
   const onSubmit = async ({email, password}) => {
-    const res = await fetch('http://localhost:3000/api/auth/signin', {
+    // const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
+    const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://foate.herokuapp.com';
+
+    const res = await fetch(`${baseURL}/api/auth/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -69,6 +72,7 @@ export default function login() {
           Send
         </button>
       </form>
+      <br/><br/>
     </div>
   );
 }
