@@ -18,7 +18,9 @@ export default Dashboard;
 Dashboard.Layout = DashboardLayout;
 
 export const getServerSideProps = async (ctx) => {
-  const users = await protectPage("http://localhost:3000/api/users", ctx);
+  // const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
+  const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://foate.herokuapp.com';
+  const users = await protectPage(`${baseURL}/api/users`, ctx);
   return {
     props: { users },
   };
