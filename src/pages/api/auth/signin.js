@@ -26,7 +26,7 @@ export default async function login(req, res){
       const claims = {
         sub: guest.id,
         firstName: guest.firstName,
-        lastName: guest.lastName,
+        lastName: guest.lastName, 
         userEmail: guest.email,
         role: guest.role
       }
