@@ -8,7 +8,7 @@ import cookie from 'cookie'
 
 export default async function login(req, res){
   if(req.method === 'POST'){
-    DbConnect();
+    await DbConnect();
     
     //Check form email with DB
     const guest = await User.findOne({email: req.body.email});
