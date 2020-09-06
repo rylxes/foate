@@ -4,7 +4,6 @@ import {useContent} from '../context/ContentContext'
 
 export default function index({ properties}) {
   const {state, dispatch} = useContent();
-  // console.log(state, dispatch)
   return (
     <div>
       <Home properties={properties}/>

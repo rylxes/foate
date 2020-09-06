@@ -46,8 +46,11 @@ export default async function login(req, res){
       }));
       
       res.status(200).json({ message: "OK"})
+      res.end();
     });
   }else{
-    res.status(405).json({message: "Only POST requests are allowed."})
+    res.status(405).json({message: "Only POST requests are allowed."});
+    res.end();
+
   }
 }

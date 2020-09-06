@@ -29,10 +29,10 @@ export default function DashboardLayout({ children }) {
                   </a>
                 </li>
               </NextLink>
-              <NextLink href="/dashboard/investors">
-                <li className={pathname == "/dashboard/investors" ? "dashLink" : ""}>
+              <NextLink href="/dashboard/investments">
+                <li className={pathname == "/dashboard/investments" ? "dashLink" : ""}>
                   <a>
-                    <i className="fa fa-money"></i> Investors
+                    <i className="fa fa-money"></i> Investments
                   </a>
                 </li>
               </NextLink>

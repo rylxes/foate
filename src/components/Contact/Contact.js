@@ -20,8 +20,7 @@ export default function Contact() {
   
 
   const onSubmit = ({name, email, subject, message}) => {
-    console.log({name, email, subject, message})
-    
+    console.log({name, email, subject, message})  
   }
 
   return (

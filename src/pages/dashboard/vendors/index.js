@@ -1,9 +1,9 @@
-import DashboardLayout from '../../components/Layouts/DashboardLayout';
+import DashboardLayout from '../../../components/Layouts/DashboardLayout';
 import Head from 'next/head';
-import Table from '../../components/Dashboard/Home/Table'
+import Table from '../../../components/Dashboard/Home/Table'
 
 
-export default function vendors() {
+export default function index() {
   return (
     <>
       <Head>
@@ -17,4 +17,4 @@ export default function vendors() {
   )
 }
 
-vendors.Layout = DashboardLayout;
+index.Layout = DashboardLayout;

@@ -1,4 +1,4 @@
-import {createContext, useState, useContext, useReducer} from 'react'
+import {createContext, useContext, useReducer} from 'react'
 
 export const ContentContext = createContext();
 
@@ -8,7 +8,7 @@ const reducer = (state, action) =>{
     case 'GET_CONTENT':
       return state
     case 'SET_CONTENT':
-      return { ...state, content: action.content}
+      return { ...state, user: action.payload}
       default:
         throw new Error(`Unknown action: ${action.type}`)
   }
@@ -17,7 +17,10 @@ const reducer = (state, action) =>{
 
 
 export const ContentProvider = ({children}) => {
-  const [state, dispatch] = useReducer(reducer, "Hello Ben")
+  const [state, dispatch] = useReducer(reducer, {
+    user: [],
+    loading: false
+  })
 
   return(
     <ContentContext.Provider value={{state, dispatch}}>
