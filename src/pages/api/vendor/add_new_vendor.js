@@ -1,0 +1,49 @@
+import DbConnect from "../../../util/database";
+import Vendor from "../../../models/Vendor";
+import { hash } from "bcrypt";
+
+
+// Register route
+export default async (req, res) => {
+  await DbConnect();
+  const { method } = req;
+  switch (method) {
+    case "POST":
+      try {
+        const reqBody = JSON.parse(req.body);
+        // hash password
+        hash(reqBody.password, 10, async function (err, hash) {
+          if (err) {
+            return res.status(405).json({ message: "Something went wrong." });
+          }
+
+          // Store hash password in your DB.
+          const vendor = await Vendor.create({
+            firstName: reqBody.firstName,
+            lastName: reqBody.lastName,
+            email: reqBody.email,
+            password: hash,
+            phone: reqBody.phone,
+            address: reqBody.address,
+            tier: reqBody.tier
+          })
+
+          // Retrive stored user with _id
+          // const vendorById = await Vendor.findById({_id: vendor._id});
+          // const data = {
+          //   _id: vendorById._id,
+          //   firstName: vendorById.firstName,
+          //   email: vendorById.email
+          // }
+          res.json({ success: true });
+        });
+      } catch (error) {
+        res.status(400).json({ success: false });
+        console.log(error);
+      }
+      break;
+    default:
+      res.status(400).json({ success: false });
+      break;
+  }
+};

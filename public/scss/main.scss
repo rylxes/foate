@@ -6,6 +6,7 @@
 @import "./mixins.scss";
 @import "./breakpoints.scss";
 @import "./components/button.scss";
+@import "./components/modal.scss";
 
 // Layout Styles
 @import "./layouts/footer.scss";
@@ -32,6 +33,7 @@
 
 // Dashboard Page
 @import "./layouts/dashboard/dashboard.scss";
+@import "./layouts/dashboard/dashboard_investor.scss";
 
 
 

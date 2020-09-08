@@ -39,6 +39,32 @@
   } 
 }
 
+.btnSmall{
+  padding: .5rem 1rem;
+  color: $white;
+  outline: none;
+  border: none;  
+  box-shadow: 0 10px 6px -6px #777;
+  cursor: pointer;
+  background: $gray;
+  @include transition;
+
+  &:hover{
+    box-shadow: 0 5px 3px -3px #777;
+    // background: $secondary_2;
+  }
+}
+
+.btn-green{
+  background: #529152;
+}
+.btn-blue{
+  background: #57d5eb;
+}
+.btn-red{
+  background: #e66259;
+}
+
 
 .btn-group{
   position: absolute;

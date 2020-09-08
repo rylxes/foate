@@ -1,0 +1,38 @@
+.dashboard_investor{
+  &-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    align-items: center;
+
+  }
+
+  &-item{
+    background: $white;
+    padding: 2rem;
+    width: 25rem;
+    margin: 1rem 0;
+    @include shadow;
+
+    & h4{
+      color: $primary_4;
+      text-transform: uppercase;
+    }
+
+    & .desc{
+      font-weight: 400;
+      font-size: medium;
+      color: $gray;
+      margin: 1rem 0;
+    }
+
+    .navs{
+      margin: 1rem 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+    }
+    
+  }
+}

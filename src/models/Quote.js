@@ -19,7 +19,6 @@ const invoiceSchema = new Schema({
     trim: true,
     minlength: 5
   },
-  photos: [{type: String}],
   amount: {
     type: String,
     required: true,
@@ -33,5 +32,5 @@ const invoiceSchema = new Schema({
   },
 }, {timestamps: true});
 
-module.exports = mongoose.models.Invoice || mongoose.model("Invoice", invoiceSchema);
+module.exports = mongoose.models.Quote || mongoose.model("Quote", quoteSchema);
 

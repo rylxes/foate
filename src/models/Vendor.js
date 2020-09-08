@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Investor Schema
-const investorSchema = new Schema({
+const userSchema = new Schema({
   firstName: {
     type: String,
     required: true,
@@ -36,13 +36,9 @@ const investorSchema = new Schema({
   },
   role: {
     type: String,
-    default: "investor"
-  },
-  tier: {
-    type: String,
-    enum: ["starter", "slice", "stake"]
+    default: "vendor"
   },
 }, {timestamps: true});
 
-module.exports = mongoose.models.Investor || mongoose.model("Investor", investorSchema);
+module.exports = mongoose.models.Vendor || mongoose.model("Vendor", vendorSchema);
 

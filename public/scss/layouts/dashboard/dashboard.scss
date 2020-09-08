@@ -3,6 +3,7 @@
   justify-content: space-between;
   width: 100%;
   min-height: 90vh;
+  position: relative;
 
   & i {
     margin: 0 0.5rem;
@@ -165,5 +166,37 @@
         max-width: 100%;
       }
     }
+
+    &-listing{
+      background: $white;
+      padding: 2rem;
+      width: 100%;
+      margin: 1rem 0;
+      @include shadow;
+
+      & .navs{
+        margin: 1rem 0 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        a{
+          margin-right: 2rem;
+        }
+      }
+
+      & h4{
+        color: $primary_4;
+        text-transform: uppercase;
+      }
+
+      & .desc{
+        font-weight: 400;
+        font-size: medium;
+        color: $gray;
+        margin: 1rem 0;
+      }
+    }
+
   }
 }

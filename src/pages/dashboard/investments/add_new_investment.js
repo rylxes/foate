@@ -50,7 +50,9 @@ const ContactFormSchema = yup.object().shape({
 
 
 export default function add_investment() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [reqFailed, setReqFailed] = useState(false);
+
   const router = useRouter();
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(ContactFormSchema),
@@ -75,7 +77,12 @@ export default function add_investment() {
     });
 
     const uploadResponse = await res.json();
-    if (uploadResponse.success) router.replace("/dashboard/investments");
+    if (uploadResponse.success){
+      router.replace("/dashboard/investments");
+    }else{
+      setLoading(true);
+      setReqFailed(true);
+    }  
   };
 
   return (
@@ -152,7 +159,8 @@ export default function add_investment() {
           <div className="contact__form-group center">
             <button type="submit" className="btn_dashboard">
               {loading ? (<i className="fa fa-spinner fa-spin fa-2x"></i>)  : "Upload"}
-            </button>    
+            </button>   
+            { reqFailed ? (<p style={{ color: "red" }}>Something went wrong, please try again.</p>) : null} 
           </div>
         </form>
       </div>
