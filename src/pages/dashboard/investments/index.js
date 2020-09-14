@@ -1,12 +1,12 @@
 import Head from "next/head";
-import NextLink from "next/link";
 import DashboardLayout from "../../../components/Layouts/DashboardLayout";
 import { protectPage } from "../../../util/protectPage";
 import InvestMenu from "../../../components/Dashboard/Investments/InvestMenu";
+import InvestmentsItem from "../../../components/Dashboard/Investments/InvestmentsItem";
 
 
-export default function index({ investments }) {
-  console.log(investments);
+export default function index({ investmentsRes }) {
+  
   return (
     <>
       <Head>
@@ -14,65 +14,15 @@ export default function index({ investments }) {
       </Head>
       <InvestMenu />
       <h2>Investments</h2> 
-      <div className="dashboard__main-listing">
-        <h4>Title: Lorem ipsum dolor sit.</h4>
-        <div className="desc">
-          <strong>Description:</strong> Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Tenetur, laudantium. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Tenetur, laudantium.
-        </div>
-        <div className="desc">
-          <strong>Tier:</strong> Starter
-        </div>
-        <div className="navs">
-          <NextLink href="/dashboard/investments" href="">
-            <a className="btn_dashboard">View</a>
-          </NextLink>
-          <NextLink href="/dashboard/investments">
-            <a className="btn_dashboard">Download</a>
-          </NextLink>
-        </div>
-      </div>
-
-      <div className="dashboard__main-listing">
-        <h4>Title: Lorem ipsum dolor sit.</h4>
-        <div className="desc">
-          <strong>Description:</strong> Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Tenetur, laudantium. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Tenetur, laudantium.
-        </div>
-        <div className="desc">
-          <strong>Tier:</strong> Starter
-        </div>
-        <div className="navs">
-          <NextLink href="/dashboard/investments" href="">
-            <a className="btn_dashboard">View</a>
-          </NextLink>
-          <NextLink href="/dashboard/investments">
-            <a className="btn_dashboard">Download</a>
-          </NextLink>
-        </div>
-      </div>
-
-      <div className="dashboard__main-listing">
-        <h4>Title: Lorem ipsum dolor sit.</h4>
-        <div className="desc">
-          <strong>Description:</strong> Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Tenetur, laudantium. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Tenetur, laudantium.
-        </div>
-        <div className="desc">
-          <strong>Tier:</strong> Starter
-        </div>
-        <div className="navs">
-          <NextLink href="/dashboard/investments">
-            <a className="btn_dashboard">View</a>
-          </NextLink>
-          <NextLink href="/dashboard/investments">
-            <a className="btn_dashboard">Download</a>
-          </NextLink>
-        </div>
-      </div>
+      {
+        investmentsRes.map(investment => {
+          return (
+            <div key={investment._id}>
+              <InvestmentsItem investment={investment}/>
+            </div>
+          )
+        })
+      }
     </>
   );
 }
@@ -85,8 +35,10 @@ export const getServerSideProps = async (ctx) => {
       ? process.env.devURL
       : process.env.prodURL;
 
-  const investments = await protectPage(`${baseURL}/api/investor/get_investments`, ctx);
+  const responseData = await protectPage(`${baseURL}/api/investor/get_investments`, ctx);
+  const jsonData = JSON.parse(JSON.stringify(responseData))
+  const investmentsRes = jsonData.data.investments;
   return {
-    props: { investments },
+    props: { investmentsRes },
   };
 };

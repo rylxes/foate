@@ -13,9 +13,9 @@ const investmentSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
     minlength: 1
+    // unique: true,
   },
   description: {
     type: String,

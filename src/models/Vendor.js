@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Investor Schema
-const userSchema = new Schema({
+const vendorSchema = new Schema({
   firstName: {
     type: String,
     required: true,
