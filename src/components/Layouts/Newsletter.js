@@ -4,7 +4,7 @@ export default function Newsletter() {
       <div className="container">
         <div className="newsletter__content">
           <h1 className="newsletter__title">
-            Get all the latest investment deals directly in yoour inbox.
+            Get all the latest investment deals directly in your inbox.
           </h1>
           <div className="newsletter__subscribe">
 

@@ -44,7 +44,7 @@ export default async (req, res) => {
           const investment = await Investment.create({
             title, description, tier, filePaths: uploadPaths
           });
-          console.log(investment)
+          
           return res.status(200).json({ success: true, data: investment });
         } catch (error) {
           console.log("Error: ", error);

@@ -10,75 +10,6 @@ import Modal from "../../../components/Dashboard/Investments/Modal";
 
 
 export default function investors({investorsRes}) {
-  // console.log(investorsRes);
-
-  const investorsArr = [
-    {
-      id: 1,
-      firstName: "John",
-      lastName: "Doe",
-      address: "10 Victoria Street UK",
-      tier: "starter",
-      email: "jdoe@email.com",
-    },
-    {
-      id: 2,
-      firstName: "John",
-      lastName: "Doe",
-      address: "10 Victoria Street UK",
-      tier: "starter",
-      email: "jdoe@email.com",
-    },
-    {
-      id: 3,
-      firstName: "John",
-      lastName: "Doe",
-      address: "10 Victoria Street UK",
-      tier: "starter",
-      email: "jdoe@email.com",
-    },
-    {
-      id: 4,
-      firstName: "John",
-      lastName: "Doe",
-      address: "10 Victoria Street UK",
-      tier: "starter",
-      email: "jdoe@email.com",
-    },
-    {
-      id: 5,
-      firstName: "John",
-      lastName: "Doe",
-      address: "10 Victoria Street UK",
-      tier: "starter",
-      email: "jdoe@email.com",
-    },
-    {
-      id: 6,
-      firstName: "John",
-      lastName: "Doe",
-      address: "10 Victoria Street UK",
-      tier: "starter",
-      email: "jdoe@email.com",
-    },
-    {
-      id: 7,
-      firstName: "John",
-      lastName: "Doe",
-      address: "10 Victoria Street UK",
-      tier: "starter",
-      email: "jdoe@email.com",
-    },
-    {
-      id: 8,
-      firstName: "John",
-      lastName: "Doe",
-      address: "10 Victoria Street UK",
-      tier: "starter",
-      email: "jdoe@email.com",
-    },
-  ];
-
 
   const [investors, setInvestors] = useState(investorsRes);
   const [showModal, setShowModal] = useState(false);
@@ -126,7 +57,7 @@ export default function investors({investorsRes}) {
         }
       );
       const investorResponse = await res.json();
-      console.log(investorResponse);
+      // console.log(investorResponse);
     }
   };
 

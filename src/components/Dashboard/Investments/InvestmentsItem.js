@@ -1,8 +1,9 @@
 import React from 'react'
 import Moment from 'moment'
+import NavLink from 'next/link'
 
 export default function InvestmentsItem({investment}) {
-  const {title, description, tier, createdAt} = investment;
+  const {_id, title, description, tier, createdAt} = investment;
 
   return (
     <div>
@@ -21,12 +22,9 @@ export default function InvestmentsItem({investment}) {
           <strong>Tier:</strong> {tier}
         </div>
         <div className="navs">
-          <button className="btnSmall btn-blue">
-            Download
-          </button>
-          <button className="btnSmall btn-red">
-            Delete
-          </button>
+          <NavLink href={`/dashboard/investments/view_investment/${_id}`}>
+            <a className="btnSmall btn-blue">View</a>
+          </NavLink>
         </div>
       </div>
     </div>

@@ -23,18 +23,9 @@ export default async (req, res) => {
             lastName: reqBody.lastName,
             email: reqBody.email,
             password: hash,
-            phone: reqBody.phone,
-            address: reqBody.address,
-            tier: reqBody.tier
+            phone: reqBody.phone
           })
 
-          // Retrive stored user with _id
-          // const vendorById = await Vendor.findById({_id: vendor._id});
-          // const data = {
-          //   _id: vendorById._id,
-          //   firstName: vendorById.firstName,
-          //   email: vendorById.email
-          // }
           res.json({ success: true });
         });
       } catch (error) {

@@ -1,7 +1,12 @@
+import Head from 'next/head';
+import {useState} from 'react'
 import { useRouter } from "next/router";
-
+import DashboardLayout from "../../../components/Layouts/DashboardLayout";
 import { yupResolver } from "@hookform/resolvers";
 import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import VendorMenu from '../../../components/Dashboard/Vendor/VendorMenu'
+
 
 const AddVendorFormSchema = yup.object().shape({
   firstName: yup
@@ -28,7 +33,7 @@ const AddVendorFormSchema = yup.object().shape({
     .min(2, "Phone field must be more than two characters long."),
 });
 
-export default function add_new_investor() {
+export default function add_new_vendor() {
   const [loading, setLoading] = useState(false);
   const [reqFailed, setReqFailed] = useState(false);
   const router = useRouter();
@@ -39,14 +44,14 @@ export default function add_new_investor() {
   const onSubmit = async (data) => {
     
     setLoading(true);
-    const res = await fetch("/api/investor/add_new_vendor", {
+    const res = await fetch("/api/vendor/add_new_vendor", {
       method: "POST",
       body: JSON.stringify(data),
     });
     const vendorResponse = await res.json();
-    console.log(vendorResponse)
+    // console.log(vendorResponse)
     if (vendorResponse.success){
-      router.replace("/dashboard/vendor");
+      router.replace("/dashboard/vendors");
     }else{
       setLoading(false);
       setReqFailed(true);
@@ -56,14 +61,14 @@ export default function add_new_investor() {
   return (
     <>
       <Head>
-        <title>FOATE | Add Investor</title>
+        <title>FOATE | Add Vendor</title>
       </Head>
 
-      <InvestMenu />
+      <VendorMenu />
 
       <div>
         <form onSubmit={handleSubmit(onSubmit)} className="invest__form">
-          <h1>Add Investor</h1>
+          <h1>Add Vendor</h1>
           <div className="contact__form-group">
             <label htmlFor="firstName">First Name</label>
             <input
@@ -144,7 +149,7 @@ export default function add_new_investor() {
               {loading ? (
                 <i className="fa fa-spinner fa-spin fa-2x"></i>
               ) : (
-                "Add Investor"
+                "Add Vendor"
               )}
             </button>
               { reqFailed ? (<p style={{ color: "red" }}>Something went wrong, please try again.</p>) : null}
@@ -155,3 +160,4 @@ export default function add_new_investor() {
   );
 }
 
+add_new_vendor.Layout = DashboardLayout;

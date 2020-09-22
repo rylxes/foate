@@ -22,7 +22,7 @@ const vendorSchema = new Schema({
     trim: true,
     minlength: 1
   },
-  address: {
+  phone: {
     type: String,
     required: true,
     trim: true,
