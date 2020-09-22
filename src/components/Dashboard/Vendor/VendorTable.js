@@ -30,7 +30,7 @@ export default function VendorTable({ vendorsRes, deleteHandler }) {
                     <td>{vendor.lastName}</td>
                     <td>{vendor.email}</td>
                     <td>{vendor.phone}</td>
-                    <td>{ Moment(vendor.createdAt).format("LL") }</td>
+                    <td>{ Moment(vendor.createdAt).format("l") }</td>
                     <td>
                       <button onClick={() => deleteHandler(vendor)} className="btn-red">Delete</button>
                     </td>

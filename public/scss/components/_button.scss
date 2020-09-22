@@ -23,7 +23,6 @@
   padding: 1rem 1.5rem;
   color: $white;
   background: $secondary;
-  // border-radius: 100px;
   outline: none;
   border: none;
   margin: 1rem 0;
@@ -101,3 +100,8 @@
   
 }
 
+
+.on{
+  box-shadow: 0 5px 3px -3px #777;
+  background: $secondary_2;
+}

@@ -73,7 +73,6 @@ export default function add_new_project({ vendorsRes }) {
   });
 
   const onSubmit = async (data) => {
-    console.log(data)
     setLoading(true);
     const res = await fetch("/api/project/add_new_project", {
       method: "POST",
