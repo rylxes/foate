@@ -31,15 +31,14 @@ export default async (req, res) => {
       
     case "DELETE":
       try {
-        const deleteInvestment = await Investment.findById(reqBody.id);
+        const deleteInvestment = await Investment.findOneAndDelete({_id: reqBody._id});
         if (deleteInvestment === null) {
           return res.status(404).json({
             success: false,
             message: "Investment was not found.",
           });
         }
-    
-        await deleteInvestment.remove();
+        
         return res.status(200).json({
           success: true,
           message: "Investment was successfully removed.",

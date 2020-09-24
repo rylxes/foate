@@ -1,3 +1,10 @@
+.dashboard__investments{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
 .dashboard_investor{
   &-list{
     display: grid;
@@ -35,4 +42,31 @@
     }
     
   }
+}
+
+.dashboard__investItem{
+  background: $white;
+  padding: 4rem 2rem;
+  width: 100%;
+  @include shadow;
+  
+  h2, &-meta{
+    text-align: center;
+    color: $primary;
+  }
+
+  h4{
+    margin: 3rem 0 1rem;
+  }
+
+  &-docs{
+    margin: 1rem 0 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    
+    & a{
+      margin-right: .5rem;
+    }
+  }
+
 }

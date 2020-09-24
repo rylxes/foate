@@ -1,0 +1,20 @@
+.dashboard__project{
+  background: $white;
+  padding: 4rem 2rem;
+  width: 100%;
+  @include shadow;
+  
+
+  h2, &-meta{
+    text-align: center;
+    color: $primary;
+  }
+
+  h4{
+    margin: 3rem 0 1rem;
+  }
+
+  .dashboard__project-status{
+    color: $primary;
+  }
+}
