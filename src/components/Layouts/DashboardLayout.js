@@ -6,8 +6,6 @@ export default function DashboardLayout({ children }) {
   const { pathname } = useRouter();
   const { state, dispatch } = useContent();
 
-  // {console.log(state.user)}
-
   return (
     <div>
       <div className="dashboard">
