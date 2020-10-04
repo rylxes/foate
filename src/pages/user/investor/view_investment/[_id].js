@@ -11,12 +11,12 @@ export default function view_investment({ investors, currentInvestment }) {
   const {state, dispatch} = useContent();
 
 
-  useEffect(() => {
-    if (router && router.query) {
-      const currentInvestor = investors.filter((investor) => investor._id === router.query.asxg);
-      dispatch({type: 'SET_CONTENT', payload: currentInvestor[0]})
-    }
-  }, [router])
+  // useEffect(() => {
+  //   if (router && router.query) {
+  //     const currentInvestor = investors.filter((investor) => investor._id === router.query.asxg);
+  //     dispatch({type: 'SET_CONTENT', payload: currentInvestor[0]})
+  //   }
+  // }, [router])
 
     const {
     filePaths,
