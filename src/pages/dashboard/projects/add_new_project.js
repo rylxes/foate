@@ -1,34 +1,13 @@
 import Head from 'next/head';
 import {useState} from 'react'
 import { useRouter } from "next/router";
+import {protectPage} from '../../../util/protectPage'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
-import {protectPage} from '../../../util/protectPage'
 import * as yup from "yup";
 import ProjectsMenu from '../../../components/Dashboard/Projects/ProjectsMenu'
 import DashboardLayout from "../../../components/Layouts/DashboardLayout";
 
-
-
-
-// const SUPPORTED_FORMATS = [
-//   'application/jpg', 
-//   'application/jpeg', 
-//   'application/png', 
-//   'application/svg', 
-// ]
-
-// const checkMultiplePhotoTypes = (value) => {
-//   let types = [];
-//   for (const key in value) {
-//     if(value[key].type){
-//       types.push(value[key].type);
-//     }
-//   }
-//   return types.every((type)=> {
-//     return SUPPORTED_FORMATS.includes(type);
-//   })
-// }
 
 const AddProjectFormSchema = yup.object().shape({
   title: yup
@@ -42,26 +21,7 @@ const AddProjectFormSchema = yup.object().shape({
   vendor: yup
     .string()
     .required("Vendor field is required")
-    .min(2, "Vendor field must be more than two characters long."),
-  // amount: yup
-  //   .number()
-  //   .typeError('Please enter a valid phone number')
-  //   .integer()
-  //   .required("Phone field is required")
-  //   .min(2, "Phone field must be more than two characters long."),
-  // quote: yup
-  //   .number()
-  //   .typeError('Please enter a valid phone number')
-  //   .integer()
-  //   .required("Phone field is required")
-  //   .min(2, "Phone field must be more than two characters long."),
-  // photo: yup
-  //   .mixed()
-  //   .test(
-  //     "fileFormat",
-  //     "Please upload only valid image formats",
-  //     value => value && checkMultiplePhotoTypes(value)
-  //   )
+    .min(2, "Vendor field must be more than two characters long.")
 });
 
 export default function add_new_project({ vendorsRes }) {
@@ -79,8 +39,6 @@ export default function add_new_project({ vendorsRes }) {
       body: JSON.stringify(data),
     });
     const projectResponse = await res.json();
-    
-    console.log(projectResponse)
     
     if (projectResponse.success){
       router.replace("/dashboard/projects");
@@ -131,36 +89,6 @@ export default function add_new_project({ vendorsRes }) {
               <span style={{ color: "red" }}>{errors.description.message}</span>
             )}
           </div>
-
-          {/* <div className="contact__form-group">
-            <label htmlFor="quote">Quote</label>
-            <input
-              id="quote"
-              type="number"
-              placeholder="Quote"
-              className="contact__form-input "
-              ref={register}
-              name="quote"
-            />
-            {errors.quote && (
-              <span style={{ color: "red" }}>{errors.quote.message}</span>
-            )}
-          </div>
-
-          <div className="contact__form-group">
-            <label htmlFor="amount">Amount</label>
-            <input
-              id="amount"
-              type="number"
-              placeholder="Amount"
-              className="contact__form-input "
-              ref={register}
-              name="amount"
-            />
-            {errors.amount && (
-              <span style={{ color: "red" }}>{errors.amount.message}</span>
-            )}
-          </div> */}
           
           <div className="contact__form-group">
             <label htmlFor="vendor">Assign a vendor to this project</label>
@@ -184,21 +112,6 @@ export default function add_new_project({ vendorsRes }) {
               <span style={{ color: "red" }}>{errors.vendor.message}</span>
             )}
           </div>
-
-          {/* <div className="contact__form-group">
-            <label htmlFor="file">Upload Photo</label>
-            <input
-              multiple
-              id="file"
-              type="file"
-              name="photo"
-              className="contact__form-input"
-              ref={register}
-            />
-            {errors.photo && (
-              <span style={{ color: "red" }}>{errors.photo.message}</span>
-            )}
-          </div> */}
 
           <div className="contact__form-group center">
             <button type="submit" className="btn_dashboard">

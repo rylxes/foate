@@ -1,5 +1,7 @@
 import DbConnect from "../../../util/database";
 import User from "../../../models/User";
+import Vendor from "../../../models/Vendor";
+import Investor from "../../../models/Investor";
 
 // Login route
 import {sign} from 'jsonwebtoken'
@@ -11,7 +13,21 @@ export default async function login(req, res){
     await DbConnect();
     
     //Check form email with DB
-    const guest = await User.findOne({email: req.body.email});
+    let guest;
+    switch (req.body.user) {
+      case 'admin':
+        guest = await User.findOne({email: req.body.email});  
+        break;
+      case 'investor':
+        guest = await Investor.findOne({email: req.body.email});
+        break;
+      case 'vendor':
+        guest = await Vendor.findOne({email: req.body.email});
+        break;
+      default:
+        break;
+    }
+    // const guest = await User.findOne({email: req.body.email});
     if(!guest){
       return res.status(405).json({message: "Something went wrong."});
     }
@@ -51,6 +67,5 @@ export default async function login(req, res){
   }else{
     res.status(405).json({message: "Only POST requests are allowed."});
     res.end();
-
   }
 }

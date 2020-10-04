@@ -14,13 +14,13 @@ export async function protectPage(url, ctx) {
     });
 
     if(resp.status === 401 && !ctx.req) {
-        Router.replace('/login');
+        Router.replace('/');
         return null;
     }
 
     if(resp.status === 401 && ctx.req) {
         ctx.res?.writeHead(302, {
-            Location: `${baseURL}/login`
+            Location: `${baseURL}`
         });
         ctx.res?.end();
         return null;

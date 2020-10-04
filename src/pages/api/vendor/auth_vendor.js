@@ -1,18 +1,19 @@
 import DbConnect from "../../../util/database";
-import User from "../../../models/User";
+import Project from "../../../models/Project";
+
 
 import {authMiddleware} from '../../../util/authMiddleware'
 
 //Protected routes
-export default authMiddleware( async (req, res) => {
+export default authMiddleware( async (req, res, authVendor) => {
+
   await DbConnect();
   const { method } = req;
   switch (method) {
     case "GET":
       try {
-        const users = await User.find({});
-
-        res.status(200).json({ success: true, data: users });
+        const projects = await Project.find({vendor: authVendor.sub}).exec();        
+        res.status(200).json({ success: true, data: {projects, user: authVendor} });
       } catch (error) {
         res.status(400).json({ success: false });
       }
@@ -21,4 +22,4 @@ export default authMiddleware( async (req, res) => {
       res.status(400).json({ success: false });
       break;
   }
-}, ['admin', 'user']);
+}, ['admin', 'vendor']);

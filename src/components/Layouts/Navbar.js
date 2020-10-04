@@ -38,8 +38,8 @@ export default function Navbar2() {
               Contact
             </a>
           </NextLink>
-          <NextLink href="/login">
-            <a className={pathname == "/login" ? "activeLink" : ""}>
+          <NextLink href="/login/investor">
+            <a className={pathname == "/login/investor" ? "activeLink" : ""}>
               Login
             </a>
           </NextLink>

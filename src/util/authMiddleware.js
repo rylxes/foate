@@ -13,9 +13,6 @@ export const authMiddleware = (fn, authRoles) => async (req, res) => {
         }
     }else{
       return res.status(401).json({message: "Sorry, you are not aunthenticated."})
-      // res.writeHead(302, {
-      //   Location: `http://localhost:3000/login`
-      // });
     }
   })
 }

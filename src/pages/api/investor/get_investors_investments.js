@@ -2,10 +2,10 @@ import DbConnect from "../../../util/database";
 import Investment from "../../../models/Investment";
 import Investor from "../../../models/Investor";
 
-import {authMiddleware} from '../../../util/authMiddleware'
+
 
 //Protected routes
-export default authMiddleware( async (req, res) => {
+export default async (req, res) => {
   await DbConnect();
   const { method } = req;
   switch (method) {
@@ -23,4 +23,4 @@ export default authMiddleware( async (req, res) => {
       res.status(400).json({ success: false });
       break;
   }
-}, ['admin', 'investor']);
+};

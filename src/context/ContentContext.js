@@ -18,7 +18,7 @@ const reducer = (state, action) =>{
 
 export const ContentProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, {
-    user: [],
+    user: undefined,
     loading: false
   })
 

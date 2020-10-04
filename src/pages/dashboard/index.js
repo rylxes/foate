@@ -6,10 +6,10 @@ import { useContent } from '../../context/ContentContext'
 import { useEffect } from 'react';
 
 
-function Dashboard({ users }) {
+function Dashboard({ data }) {
   const {state, dispatch} = useContent();
   useEffect(()=>{
-    dispatch({type: 'SET_CONTENT', payload: users})
+    dispatch({type: 'SET_CONTENT', payload: data.data})
   }, [])
   return (
     <>
@@ -27,8 +27,8 @@ Dashboard.Layout = DashboardLayout;
 
 export const getServerSideProps = async (ctx) => {
   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
-  const users = await protectPage(`${baseURL}/api/users`, ctx);
+  const data = await protectPage(`${baseURL}/api/admin`, ctx);
   return {
-    props: { users },
+    props: { data },
   };
 };
