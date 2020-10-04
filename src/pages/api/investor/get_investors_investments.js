@@ -14,13 +14,13 @@ export default async (req, res) => {
         const investments = await Investment.find({});
         const investors = await Investor.find({});
         
-        res.status(200).json({ success: true, data: {investments, investors} });
+        return res.status(200).json({ success: true, data: {investments, investors} });
       } catch (error) {
-        res.status(400).json({ success: false });
+        return res.status(400).json({ success: false });
       }
       break;
     default:
-      res.status(400).json({ success: false });
+      return res.status(400).json({ success: false });
       break;
   }
 };
