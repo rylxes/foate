@@ -66,7 +66,13 @@ export const getStaticProps = async (ctx) => {
   const responseData = await fetch(`${baseURL}/api/investor/get_investors_investments`);
   const jsonData = await responseData.json();
   const dataResponse = JSON.parse(JSON.stringify(jsonData));
-
+  
+  if(dataResponse.success === "false"){
+    return {
+      props: null
+    };
+  }
+  
   const currentInvestment = dataResponse.data.investments.filter(
     (investment) => investment._id === ctx.params._id
   );
