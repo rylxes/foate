@@ -16,7 +16,7 @@ export default async (req, res) => {
         
         return res.status(200).json({ success: true, data: {investments, investors} });
       } catch (error) {
-        return res.status(400).json({ success: false });
+        return res.status(400).json({ success: false, data: { investments: [], investors: []} });
       }
       break;
     default:
