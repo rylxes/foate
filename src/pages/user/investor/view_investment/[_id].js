@@ -7,6 +7,14 @@ import { useContent } from '../../../../context/ContentContext'
 
 
 export default function view_investment({ investors, currentInvestment }) {
+
+
+  if(!investors || !currentInvestment){
+    return (
+      <p>An error occured</p>
+    )
+  }
+  
   const router = useRouter();
   const {state, dispatch} = useContent();
 
