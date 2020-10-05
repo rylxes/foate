@@ -14,7 +14,7 @@ export default function view_investment({ investors, currentInvestment }) {
       <p>An error occured</p>
     )
   }
-  
+
   const router = useRouter();
   const {state, dispatch} = useContent();
 
@@ -72,15 +72,15 @@ export const getStaticProps = async (ctx) => {
   
   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
   const responseData = await fetch(`${baseURL}/api/investor/get_investors_investments`);
-  const jsonData = await responseData.json();
-  const dataResponse = JSON.parse(JSON.stringify(jsonData));
+  // const jsonData = await responseData.json();
+  // const dataResponse = JSON.parse(JSON.stringify(jsonData));
   
-  const currentInvestment = dataResponse.data.investments.filter(
+  const currentInvestment = responseData.data.investments.filter(
     (investment) => investment._id === ctx.params._id
   );
 
   return {
-    props: { investors: dataResponse.data.investors, currentInvestment} || {},
+    props: { investors: responseData.data.investors, currentInvestment} || {},
   };
 };
 
@@ -90,11 +90,11 @@ export const getStaticProps = async (ctx) => {
 export const getStaticPaths = async () => {
   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
   const responseData = await fetch(`${baseURL}/api/investor/get_investments`);
-  const jsonData = await responseData.json();
-  const dataResponse = JSON.parse(JSON.stringify(jsonData));
+  // const jsonData = await responseData.json();
+  // const dataResponse = JSON.parse(JSON.stringify(jsonData));
 
   // Get the paths we want to pre-render based on posts
-  const paths = dataResponse.data.investments.map((investment) => ({
+  const paths = responseData.data.investments.map((investment) => ({
     params: { _id: investment._id },
   }));
 
