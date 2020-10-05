@@ -11,12 +11,12 @@ export default function view_investment({ investors, currentInvestment }) {
   const {state, dispatch} = useContent();
 
 
-  // useEffect(() => {
-  //   if (router && router.query) {
-  //     const currentInvestor = investors.filter((investor) => investor._id === router.query.asxg);
-  //     dispatch({type: 'SET_CONTENT', payload: currentInvestor[0]})
-  //   }
-  // }, [router])
+  useEffect(() => {
+    if (router && router.query) {
+      const currentInvestor = investors.filter((investor) => investor._id === router.query.asxg);
+      dispatch({type: 'SET_CONTENT', payload: currentInvestor[0]})
+    }
+  }, [router])
 
     const {
     filePaths,
@@ -64,17 +64,15 @@ export const getStaticProps = async (ctx) => {
   
   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
   const responseData = await fetch(`${baseURL}/api/investor/get_investors_investments`);
-  // const jsonData = await responseData.json();
-  // const dataResponse = JSON.parse(JSON.stringify(jsonData));
-  
-  const dataResponse = await responseData.json();
+  const jsonData = await responseData.json();
+  const dataResponse = JSON.parse(JSON.stringify(jsonData));
   
   const currentInvestment = dataResponse.data.investments.filter(
     (investment) => investment._id === ctx.params._id
   );
 
   return {
-    props: { investors: dataResponse.data.investors, currentInvestment},
+    props: { investors: dataResponse.data.investors, currentInvestment} || {},
   };
 };
 
@@ -84,10 +82,8 @@ export const getStaticProps = async (ctx) => {
 export const getStaticPaths = async () => {
   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
   const responseData = await fetch(`${baseURL}/api/investor/get_investments`);
-  // const jsonData = await responseData.json();
-  // const dataResponse = JSON.parse(JSON.stringify(jsonData));
-
-  const dataResponse = await responseData.json();
+  const jsonData = await responseData.json();
+  const dataResponse = JSON.parse(JSON.stringify(jsonData));
 
   // Get the paths we want to pre-render based on posts
   const paths = dataResponse.data.investments.map((investment) => ({
