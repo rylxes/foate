@@ -4,12 +4,15 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from 'react';
 import { useContent } from '../../../../context/ContentContext'
+import DbConnect from "../../../../util/database";
+import Investment from "../../../../models/Investment";
+import Investor from "../../../../models/Investor";
 
 
 export default function view_investment({ investors, currentInvestment }) {
 
 
-  return <p>Testing Page</p>
+  // console.log(investors)
 
   if(!investors || !currentInvestment){
     return (
@@ -70,20 +73,46 @@ export default function view_investment({ investors, currentInvestment }) {
 
 view_investment.Layout = DashboardLayout;
 
-export const getStaticProps = async (ctx) => {
-  
-  const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
-  const responseData = await fetch(`${baseURL}/api/investor/get_investors_investments`);
-  const jsonData = await responseData.json();
-  // const dataResponse = JSON.parse(JSON.stringify(jsonData));
-  
-  const currentInvestment = jsonData.data.investments.filter(
-    (investment) => investment._id === ctx.params._id
-  );
 
-  return {
-    props: { investors: jsonData.data.investors, currentInvestment} || {},
-  };
+
+
+// export const getStaticProps = async (ctx) => {
+  
+//   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
+//   const responseData = await fetch(`${baseURL}/api/investor/get_investors_investments`);
+//   const jsonData = await responseData.json();
+//   // const dataResponse = JSON.parse(JSON.stringify(jsonData));
+//   const currentInvestment = jsonData.data.investments.filter(
+//     (investment) => investment._id === ctx.params._id
+//   );
+//   return {
+//     props: { investors: jsonData.data.investors, currentInvestment} || {},
+//   };
+// };
+
+
+export const getStaticProps = async (ctx) => {
+  await DbConnect();
+  try {
+    const investmentsRes = await Investment.find({});
+    const investorsRes = await Investor.find({});
+    
+    const investments = JSON.parse(JSON.stringify(investmentsRes));
+    const investors = JSON.parse(JSON.stringify(investorsRes));
+    
+    const currentInvestment = investments.filter(
+      (investment) => investment._id === ctx.params._id
+    );
+  
+    return {
+      props: { investors, currentInvestment}
+    }; 
+  } catch (error) {
+    console.log(error)
+    return{
+      props: {investors: [], currentInvestment: []}
+    }
+  }
 };
 
 

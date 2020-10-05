@@ -22,13 +22,13 @@ export default function InvestmentsItem({ investment, user }) {
         <strong>Tier:</strong> {tier}
       </div>
       <div className="navs">
-        {/* <NavLink href={`/user/investor/view_investment/${_id}?asxg=${user.sub}`}>
-          <a className="btnSmall btn-blue">View</a>
-        </NavLink> */}
-
-        <NavLink href={`/user/investor/view_investment/${_id}`}>
+        <NavLink href={`/user/investor/view_investment/${_id}?asxg=${user.sub}`}>
           <a className="btnSmall btn-blue">View</a>
         </NavLink>
+
+        {/* <NavLink href={`/user/investor/view_investment/${_id}`}>
+          <a className="btnSmall btn-blue">View</a>
+        </NavLink> */}
       </div>
     </div>
   );
