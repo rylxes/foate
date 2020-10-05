@@ -9,6 +9,8 @@ import { useContent } from '../../../../context/ContentContext'
 export default function view_investment({ investors, currentInvestment }) {
 
 
+  return <p>Testing Page</p>
+
   if(!investors || !currentInvestment){
     return (
       <p>An error occured</p>

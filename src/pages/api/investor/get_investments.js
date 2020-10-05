@@ -10,15 +10,12 @@ export default  async (req, res) => {
   switch (method) {
     case "GET":
       try {
-        const investments = await Investment.find({});
-        
-        res.status(200).json({ success: true, data: {investments} });
+        const investments = await Investment.find({}); 
+        return res.status(200).json({ success: true, data: {investments} });
       } catch (error) {
-        res.status(400).json({ success: false });
+        return res.status(400).json({ success: false });
       }
-      break;
     default:
-      res.status(400).json({ success: false });
-      break;
+      return res.status(400).json({ success: false });
   }
 }
