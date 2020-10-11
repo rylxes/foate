@@ -28,6 +28,9 @@
 // Properties Page
 @import "./layouts/properties/properties.scss";
 
+// Design Page
+@import "./layouts/design/design.scss";
+
 // Contact Page
 @import "./layouts/contact/contact.scss";
 
@@ -96,9 +99,11 @@ body {
   width: 100%;
   margin: 0 auto;
   
-  @include media("<=1560px") {
-    width: 1280px;
-  }
+  max-width: 80%;
+
+  // @include media("<=1560px") {
+  //   width: 1280px;
+  // }
   
   @include media("<=desktop") {
     width: 90%;

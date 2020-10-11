@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function Hero({home}) {
   return (
     <div
       style={{ backgroundImage: `url('./img/honeycomb.svg')` }}
@@ -9,9 +9,9 @@ export default function Hero() {
       <div className="container">
         <div className="hero__content">
           <div className="hero__text">
-            <h1 className="hero__title">Your perfect home is out there,</h1>
-            <span className="hero__subtitle">Lets help you find it.</span>
-            <button className="btn">Get started</button>
+            <h1 className="hero__title">{home.header.caption}</h1>
+            <span className="hero__subtitle">{home.header.description}</span>
+            <button className="btn">{home.header.buttons[0].title}</button>
           </div>
 
           <img

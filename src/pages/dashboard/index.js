@@ -11,11 +11,13 @@ function Dashboard({ data }) {
   useEffect(()=>{
     dispatch({type: 'SET_CONTENT', payload: data.data})
   }, [])
+  
+  
   return (
     <>
       <Head>
         <title>FOATE | Dashboard Home</title>
-        {console.log(state)}
+        {/* {console.log(state)} */}
       </Head>
       <Home/>
     </>

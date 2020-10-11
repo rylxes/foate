@@ -2,22 +2,17 @@ import Moment from "moment";
 import DashboardLayout from "../../../../components/Layouts/DashboardLayout";
 import Head from "next/head";
 import InvestMenu from "../../../../components/Dashboard/Investments/InvestMenu";
-import { useRouter } from "next/router";
+import DbConnect from "../../../../util/database";
+import Investment from "../../../../models/Investment";
 
 
 
 
-
-export default function view_investment({ investments }) {
-  const router = useRouter();
-  const currentInvestment = investments.filter(
-    (investment) => investment._id === router.query._id
-  );
-
+export default function view_investment({ currentInvestment }) {
+ 
   const {
-    _id,
-    filePaths,
     title,
+    filePaths,
     description,
     tier,
     createdAt,
@@ -81,35 +76,31 @@ export default function view_investment({ investments }) {
 
 view_investment.Layout = DashboardLayout;
 
+
+
+
 export const getStaticProps = async (ctx) => {
-  const baseURL =
-    process.env.NODE_ENV === "development"
-      ? process.env.devURL
-      : process.env.prodURL;
-
-  const responseData = await fetch(`${baseURL}/api/investor`);
-  const jsonData = await responseData.json();
-  const investmentsRes = jsonData.data.investments;
-  const investments = JSON.parse(JSON.stringify(investmentsRes));
-
-  return {
-    props: { investments },
-  };
+  await DbConnect();  
+    const investmentsRes = await Investment.find({});  
+    const investments = JSON.parse(JSON.stringify(investmentsRes));
+    const currentInvestment = investments.filter(
+      (investment) => investment._id === ctx.params._id
+    );
+    return {
+      props: { currentInvestment }
+    }; 
 };
 
-export const getStaticPaths = async (ctx) => {
-  const baseURL =
-    process.env.NODE_ENV === "development"
-      ? process.env.devURL
-      : process.env.prodURL;
 
-  const responseData = await fetch(`${baseURL}/api/investor`);
+
+
+export const getStaticPaths = async () => {
+  const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
+  const responseData = await fetch(`${baseURL}/api/investor/get_investments`);
   const jsonData = await responseData.json();
-  const investmentsRes = jsonData.data.investments;
-  const investments = JSON.parse(JSON.stringify(investmentsRes));
 
   // Get the paths we want to pre-render based on posts
-  const paths = investments.map((investment) => ({
+  const paths = jsonData.data.investments.map((investment) => ({
     params: { _id: investment._id },
   }));
 

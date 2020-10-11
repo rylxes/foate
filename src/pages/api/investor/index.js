@@ -5,7 +5,7 @@ import Investor from "../../../models/Investor";
 import {authMiddleware} from '../../../util/authMiddleware'
 
 //Protected routes
-export default authMiddleware( async (req, res) => {
+export default authMiddleware( async (req, res, authUser) => {
   await DbConnect();
   const { method } = req;
   switch (method) {
@@ -13,6 +13,7 @@ export default authMiddleware( async (req, res) => {
       try {
         const investments = await Investment.find({});
         const investors = await Investor.find({});
+        console.log(authUser)
         
         res.status(200).json({ success: true, data: {investments, investors} });
       } catch (error) {
@@ -23,4 +24,4 @@ export default authMiddleware( async (req, res) => {
       res.status(400).json({ success: false });
       break;
   }
-}, ['admin', 'investor']);
+}, ['admin', 'investor', 'user']);

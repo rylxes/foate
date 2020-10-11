@@ -22,7 +22,7 @@ export default function InvestmentsItem({ investment }) {
         <strong>Tier:</strong> {tier}
       </div>
       <div className="navs">
-        <NavLink href={`/dashboard/investments/view_investment/${_id}`}>
+        <NavLink href="/dashboard/investments/view_investment/[_id]" as={`/dashboard/investments/view_investment/${_id}`}>
           <a className="btnSmall btn-blue">View</a>
         </NavLink>
       </div>

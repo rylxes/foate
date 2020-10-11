@@ -1,6 +1,5 @@
 import DashboardLayout from "../../../../components/Layouts/DashboardLayout";
 import ProjectMenu from '../../../../components/Dashboard/Projects/ProjectsMenu'
-import { protectPage } from '../../../../util/protectPage';
 import { useState } from 'react'
 import Head from "next/head";
 import Moment from "moment";
@@ -73,12 +72,12 @@ export const getStaticProps = async (ctx) => {
       ? process.env.devURL
       : process.env.prodURL;
 
-  const jsonData = await protectPage(`${baseURL}/api/project/get_projects_and_vendors`, ctx);
-  const apiResponse = JSON.parse(JSON.stringify(jsonData.data));
+  const responseData = await fetch(`${baseURL}/api/project/get_projects_and_vendors`);
+  const jsonData = await responseData.json();
   
   // Get current project and vendor using param: _id
-  const currentProject = apiResponse.projects.filter(project => project._id === ctx.params._id);
-  const currentVendor = apiResponse.vendors.filter(vendor => vendor._id === currentProject[0].vendor);
+  const currentProject = jsonData.data.projects.filter(project => project._id === ctx.params._id);
+  const currentVendor = jsonData.data.vendors.filter(vendor => vendor._id === currentProject[0].vendor);
   
   return {
     props: { 

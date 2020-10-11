@@ -7,14 +7,14 @@ import InvestmentB from './InvestmentB'
 
 
 
-export default function Index({properties}) {
+export default function Index({home, properties}) {
   return (
     <div>
-      <Hero/>
-      <OfferList/>
+      <Hero home={home}/>
+      <OfferList home={home}/>
       <Listing properties={properties}/>
-      <InvestmentA/>
-      <InvestmentB/>
+      <InvestmentA home={home}/>
+      <InvestmentB home={home}/>
     </div>
   )
 }

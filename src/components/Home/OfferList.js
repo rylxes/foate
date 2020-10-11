@@ -1,7 +1,7 @@
 import React from "react";
 import Offer from "./Offer";
 
-export default function OfferList() {
+export default function OfferList({home}) {
   const cardData = [
     {
       font: "invest.svg",
@@ -32,10 +32,10 @@ export default function OfferList() {
     <div className="container ">
       <div className="offer-list">
         <div className="offer-list__content">
-          {cardData.map((data, index) => {
+          {cardData.map((data, i) => {
             return (
-              <div className="offer-card__wrap" key={index}>
-                <Offer cardData={data} />
+              <div className="offer-card__wrap" key={i}>
+                <Offer cardData={{...data, title: home.hexagons[i].title, content: home.hexagons[i].content}} />
               </div>
             );
           })}

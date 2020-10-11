@@ -1,29 +1,14 @@
+import ReactMarkDown from "react-markdown";
 
 
 
-
-export default function Investment() {
+export default function Investment({home}) {
   return (
     <div className="investment-A">
       <div className="container ">
-        <h1>Investment Guide</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          maxime quis iusto similique minima error perspiciatis quas, nemo
-          laboriosam itaque, nesciunt soluta eveniet amet fugiat? Officiis quos
-          et dignissimos pariatur asperiores consequuntur ipsum praesentium
-          minus ipsam aliquid culpa magni adipisci, sit fugit a modi iure eius
-          beatae itaque nostrum facere.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          maxime quis iusto similique minima error perspiciatis quas, nemo
-          laboriosam itaque, nesciunt soluta eveniet amet fugiat? Officiis quos
-          et dignissimos pariatur asperiores consequuntur ipsum praesentium
-          minus ipsam aliquid culpa magni adipisci, sit fugit a modi iure eius
-          beatae itaque nostrum facere.
-        </p>
-        <button className="btn">Learn More</button>
+      <h1>{home.guide_title}</h1>
+        <ReactMarkDown source={home.guide_content} />
+        <button className="btn">{home.guide_button_text[0].title}</button>
       </div>
     </div>
   );

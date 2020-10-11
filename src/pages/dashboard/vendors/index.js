@@ -1,12 +1,20 @@
 import DashboardLayout from '../../../components/Layouts/DashboardLayout';
 import Head from 'next/head';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import VendorMenu from '../../../components/Dashboard/Vendor/VendorMenu'
 import VendorTable from '../../../components/Dashboard/Vendor/VendorTable'
 import {protectPage} from '../../../util/protectPage'
+// import { useContent } from '../../../context/ContentContext';
+
 
 export default function index({vendorsRes}) {
   const [vendors, setVendors] = useState(vendorsRes);
+
+  // const {state, dispatch} = useContent();
+  // useEffect(()=>{
+  //   dispatch({type: 'SET_CONTENT', payload: data.data.user})
+  // }, [])
+  
 
   //Delete investor tier locally and in db
   const deleteVendor = async (currentVendor) => {

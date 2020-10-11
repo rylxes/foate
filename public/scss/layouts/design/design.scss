@@ -1,0 +1,56 @@
+.design__feature {
+  overflow: hidden;
+  width: 100%;
+  margin: 2rem 0 8rem;
+
+  &-stat {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: center;
+    align-items: center;
+    max-height: 100%;
+    color: #333;
+  }
+
+  h5 {
+    color: $primary;
+    border-bottom: 1px solid $primary;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 5rem 0 1rem;
+  }
+
+  &-list {
+    margin: 1rem 0 8rem;
+
+    & ul {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    & li {
+
+      margin: 1rem 0;
+      display: inline;
+
+      p{
+        display: inline;
+      }
+
+      &::before {
+        content: "\2713";
+        display: inline;
+        color: $white;
+        background: $primary;
+        border-radius: 100px;
+        padding: 0.5rem 1rem;
+        margin-right: 0.3rem;
+      }
+    }
+  }
+
+
+}

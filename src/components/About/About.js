@@ -1,11 +1,21 @@
 import TeamCard from "./TeamCard";
+import ReactMarkdown from "react-markdown";
 
-export default function About() {
+
+export default function About({about}) {
+
+  const { 
+    page_title, 
+    who_we_are, who_we_are_content, 
+    mission_title, vision_title, mission_content, vision_content
+  } = about;
+
+
   return (
     <div className="about">
       <div className="header">
         <div className="container">
-          <h1>About FOATE</h1>
+          <h1>{page_title}</h1>
         </div>
       </div>
 
@@ -14,33 +24,18 @@ export default function About() {
         <div className="container">
           <div className="about__services">
             <div className="about__text no-Gap">
-              <h4>Who We Are</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                eligendi ipsam similique fugit incidunt est impedit
-                reprehenderit nobis excepturi dolorem.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                eligendi ipsam similique fugit incidunt est impedit
-                reprehenderit nobis excepturi dolorem.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                eligendi ipsam similique fugit incidunt est impedit
-                reprehenderit nobis excepturi dolorem.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                eligendi ipsam similique fugit incidunt est impedit
-                reprehenderit nobis excepturi dolorem.
-              </p>
+                <h4>{who_we_are}</h4>
+              <div>
+                {/* <ReactMarkdown source={who_we_are_content} /> */}
+                {who_we_are_content} 
+              </div>
             </div>
             <img
               className="about__img"
               src="./img/about_us.jpg"
               alt="About us"
             />
+
           </div>
         </div>
       </div>
@@ -55,6 +50,7 @@ export default function About() {
                 src="./img/skyscrapper.jpg"
                 alt="About us"
               />
+
               <img
                 className="about__img-2"
                 src="./img/teamwork.jpg"
@@ -63,33 +59,19 @@ export default function About() {
             </div>
 
             <div className="about__text">
-              <h4>Vision</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                eligendi ipsam similique fugit incidunt est impedit
-                reprehenderit nobis excepturi dolorem.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                eligendi ipsam similique fugit incidunt est impedit
-                reprehenderit nobis excepturi dolorem.
-              </p>
+              <h4>{mission_title}</h4>
+              {mission_content}
 
-              <h4>Mission</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                eligendi ipsam similique fugit incidunt est impedit
-                reprehenderit nobis excepturi dolorem.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                eligendi ipsam similique fugit incidunt est impedit
-                reprehenderit nobis excepturi dolorem.
-              </p>
+              {/* <ReactMarkDown source={mission_content} /> */}
+              {/* <ReactMarkDown source={vision_content} /> */}
+              
+              <h4>{vision_title}</h4>
+              {vision_content}
             </div>
           </div>
         </div>
       </div>
+
 
       {/* Content 3 */}
       <div className="about__content about__content-3">

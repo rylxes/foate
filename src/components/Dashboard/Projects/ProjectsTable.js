@@ -43,7 +43,8 @@ export default function ProjectTable({ projectRes, vendorRes, deleteHandler }) {
                     <td>{project.status.toUpperCase()}</td>
                     <td>
                       <NavLink
-                        href={`/dashboard/projects/view_project/${project._id}`}
+                        href={`/dashboard/projects/view_project/[_id]`}
+                        as={`/dashboard/projects/view_project/${project._id}`}
                       >
                         <a className="btnSmall btn-blue">View</a>
                       </NavLink>

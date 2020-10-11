@@ -9,7 +9,6 @@ export default  async (req, res) => {
     case "GET":
       try {
         const investments = await Investment.find({}); 
-        console.log(investments)
         return res.status(200).json({ success: true, data: {investments} });
       } catch (error) {
         return res.status(400).json({ success: false });

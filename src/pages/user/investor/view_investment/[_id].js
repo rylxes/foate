@@ -11,9 +11,6 @@ import Investor from "../../../../models/Investor";
 
 export default function view_investment({ investors, currentInvestment }) {
 
-
-  // console.log(investors)
-
   if(!investors || !currentInvestment){
     return (
       <p>An error occured</p>
@@ -74,23 +71,6 @@ export default function view_investment({ investors, currentInvestment }) {
 view_investment.Layout = DashboardLayout;
 
 
-
-
-// export const getStaticProps = async (ctx) => {
-  
-//   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
-//   const responseData = await fetch(`${baseURL}/api/investor/get_investors_investments`);
-//   const jsonData = await responseData.json();
-//   // const dataResponse = JSON.parse(JSON.stringify(jsonData));
-//   const currentInvestment = jsonData.data.investments.filter(
-//     (investment) => investment._id === ctx.params._id
-//   );
-//   return {
-//     props: { investors: jsonData.data.investors, currentInvestment} || {},
-//   };
-// };
-
-
 export const getStaticProps = async (ctx) => {
   await DbConnect();
   try {
@@ -122,7 +102,6 @@ export const getStaticPaths = async () => {
   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
   const responseData = await fetch(`${baseURL}/api/investor/get_investments`);
   const jsonData = await responseData.json();
-  // const dataResponse = JSON.parse(JSON.stringify(jsonData));
 
   // Get the paths we want to pre-render based on posts
   const paths = jsonData.data.investments.map((investment) => ({

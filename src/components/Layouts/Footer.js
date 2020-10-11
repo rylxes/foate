@@ -36,10 +36,27 @@ export default function Footer() {
             <div>
               <span className="footer__content-title">Website Links</span>
               <div className="footer__content-links">
-                <a href="">Home</a>
-                <a href="">About</a>
-                <a href="">Services</a>
-                <a href="">Contact</a>
+              <NextLink href="/">
+                <a>Home</a>
+              </NextLink>
+              <NextLink href="/about">
+                <a>About</a>
+              </NextLink>  
+              <NextLink href="/properties">
+                <a>Properties</a>
+              </NextLink>
+              <NextLink href="/investment">
+                <a>Investments</a>
+              </NextLink>
+              <NextLink href="/design">
+                <a>Designs</a>
+              </NextLink>
+              <NextLink href="/contact">
+                <a>Contact</a>
+              </NextLink>
+              <NextLink href="/login/investor">
+                <a>Login</a>
+              </NextLink>
               </div>
             </div>
 

@@ -158,6 +158,14 @@
           margin-right: 0.3rem;
         }
       }
+
+      & .newLine{
+        li {
+          &::before {
+            display: block;
+          }
+        }
+      }
     }
 
 
