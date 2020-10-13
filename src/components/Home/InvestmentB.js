@@ -1,8 +1,10 @@
 import ReactMarkDown from "react-markdown";
-
+import {useRouter} from 'next/router'
 
 
 export default function InvestmentB({home}) {
+  const router = useRouter();
+  
   return (
     <div className="container">
       <div className="investment-B">
@@ -13,7 +15,7 @@ export default function InvestmentB({home}) {
           <div>
             <ReactMarkDown source={home.variety_content} />
           </div>
-          <button className="btn">
+          <button onClick={()=> router.push('/investments') } className="btn">
             View More
           </button>
         </div>

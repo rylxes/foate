@@ -1,7 +1,9 @@
 import { useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import { FaBeer } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+
+
 
 export default function Navbar2() {
   const [menuState, setMenuState] = useState(false);
@@ -51,10 +53,11 @@ export default function Navbar2() {
           </li>
         </ul>
         <div className="menu" onClick={toggleMenu}>
-          <img
-            className="w-6"
+        <FaBars/>
+          {/* <img
+            width="35"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAVElEQVRoge3W0Q2AMAxDQRcxOExOhyBSoupuAvvvJQA0WEme7hEVVpKve0SFq3tAFUemuZO83SMAgCIyfppjotGRaWQ8AJxExk9zTDQ6Mo2MB+CPDXJLBiVsKHgMAAAAAElFTkSuQmCC"
-          />
+          /> */}
         </div>
       </nav>
       <style jsx>
@@ -128,6 +131,8 @@ export default function Navbar2() {
             padding: 10px 20px;
             margin-right: 20px;
             display: none;
+            color: #20a3dd;
+            font-size: 30px;
           }
 
           nav .close {
@@ -153,9 +158,9 @@ export default function Navbar2() {
               position: fixed;
               top: 0;
               left: -100%;
-              background-image: linear-gradient(-90deg, indigo, #6666e7);
+              background-image: linear-gradient(-90deg, #065174, #20A3DD);
               width: 100%;
-              height: 50vh;
+              height: 100vh;
               display: flex;
               justify-content: space-around;
               align-items: center;
@@ -169,6 +174,12 @@ export default function Navbar2() {
             nav ul li {
               line-height: normal;
             }
+            
+            nav ul a{
+              opacity: 1;
+              color: white;
+            }
+
 
             nav .menu,
             nav .close {
@@ -178,7 +189,7 @@ export default function Navbar2() {
             nav .logo {
               width: initial;
               margin-left: 20px;
-              line-height: 70px;
+              // line-height: 70px;
             }
           }
         `}

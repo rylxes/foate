@@ -5,11 +5,11 @@
 
   &__content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     padding-top: 5rem;
-    
+    flex-wrap: wrap;
   }
 
   &__text {
@@ -41,11 +41,21 @@
       justify-content: flex-start;
       align-items: center;
       padding: 1rem 0;
+
+      @include media("<=tablet"){
+        justify-content: center;
+      }
+    }
+
+    @include media("<=tablet"){
+      text-align: center;
+      width: 100%;
+      
     }
   }
 
-  &__form {
-    width: 50%;
+  &__form {  
+    width: 60%;
     @include shadow;
     background: $white;
     margin: 10rem auto;
@@ -86,5 +96,11 @@
       width: 100%;
       margin: 0.5rem 0 4rem;
     }
+
+    @include media("<=tablet"){
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+
   }
 }

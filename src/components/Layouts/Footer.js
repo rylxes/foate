@@ -25,10 +25,16 @@ export default function Footer() {
               <img src="/img/logo.svg" alt="logo"/>
               <ul className="footer__content-contact">
                 <li>
-                  <a href="">10 Bird Street London</a>
+                  85-87 Bayham Street
                 </li>
                 <li>
-                  <a href="">0701 234 5602</a>
+                  London, England,
+                </li>
+                <li>
+                  NW1 0AG
+                </li>
+                <li>
+                  0700 000 0000
                 </li>
               </ul>
             </div>
@@ -91,7 +97,7 @@ export default function Footer() {
       </div>
 
       <footer className="footer__secondary">
-        FOATE &copy; {new Date().getFullYear()}
+        First-String Limited &copy; {new Date().getFullYear()} | Powered by <a style={{color: '#FF9800'}} href="https://webenlist.com">Webenlist</a>
       </footer>
     </div>
   );

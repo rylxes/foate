@@ -1,4 +1,8 @@
+
+import {useRouter} from 'next/router'
+
 export default function Hero({home}) {
+  const router = useRouter();
   return (
     <div
       style={{ backgroundImage: `url('./img/honeycomb.svg')` }}
@@ -11,7 +15,7 @@ export default function Hero({home}) {
           <div className="hero__text">
             <h1 className="hero__title">{home.header.caption}</h1>
             <span className="hero__subtitle">{home.header.description}</span>
-            <button className="btn">{home.header.buttons[0].title}</button>
+            <button className="btn" onClick={()=> router.push('/investments') }>{home.header.buttons[0].title}</button>
           </div>
 
           <img
