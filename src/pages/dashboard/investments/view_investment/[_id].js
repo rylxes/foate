@@ -98,9 +98,11 @@ export const getStaticPaths = async () => {
   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
   const responseData = await fetch(`${baseURL}/api/investor/get_investments`);
   const jsonData = await responseData.json();
+  const dataResponse = JSON.parse(JSON.stringify(jsonData));
+
 
   // Get the paths we want to pre-render based on posts
-  const paths = jsonData.data.investments.map((investment) => ({
+  const paths = dataResponse.data.investments.map((investment) => ({
     params: { _id: investment._id },
   }));
 
