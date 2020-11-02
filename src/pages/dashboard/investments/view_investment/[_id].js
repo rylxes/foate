@@ -96,7 +96,8 @@ export const getStaticProps = async (ctx) => {
 
 export const getStaticPaths = async () => {
   const baseURL = process.env.NODE_ENV === 'development' ? process.env.devURL: process.env.prodURL;
-  const responseData = await fetch(`${baseURL}/api/investor/get_investments`);
+  const responseData = await fetch(`${baseURL}/api/investor/get_investments`).then(res => res.json())
+  console.log(responseData)
   const jsonData = await responseData.json();
   const dataResponse = JSON.parse(JSON.stringify(jsonData));
 
